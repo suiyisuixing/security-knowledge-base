@@ -1,0 +1,8 @@
+{
+  "project_states": [
+    {"project_id": "llm-security-lab", "status": "active", "last_touched": "2026-05-18"},
+    {"project_id": "security-log-ai-assistant", "status": "active", "last_touched": "2026-05-18"},
+    {"project_id": "vulnerability-intelligence-lab", "status": "active", "last_touched": "2026-05-18"},
+    {"project_id": "security-knowledge-base", "status": "active", "last_touched": "2026-05-18"}
+  ]
+}

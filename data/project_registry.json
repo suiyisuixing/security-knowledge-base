@@ -1,0 +1,56 @@
+{
+  "projects": [
+    {
+      "project_id": "llm-security-lab",
+      "name": "LLM Security Lab",
+      "focus": "AI/RAG Security Evaluation",
+      "repo": "https://github.com/suiyisuixing/llm-security-lab",
+      "skills": [
+        "prompt_injection_reasoning",
+        "rag_access_control",
+        "secure_retrieval_design"
+      ],
+      "status": "v3.0-rc"
+    },
+    {
+      "project_id": "security-log-ai-assistant",
+      "name": "Security Log AI Assistant",
+      "focus": "Detection Engineering / SOC Workflow",
+      "repo": "https://github.com/suiyisuixing/security-log-ai-assistant",
+      "skills": [
+        "log_analysis",
+        "mitre_mapping",
+        "alert_triage",
+        "detection_engineering"
+      ],
+      "status": "v3.0-rc"
+    },
+    {
+      "project_id": "vulnerability-intelligence-lab",
+      "name": "Vulnerability Intelligence Lab",
+      "focus": "Vulnerability Intelligence / AI Security Skill Dataset",
+      "repo": "https://github.com/suiyisuixing/vulnerability-intelligence-lab",
+      "skills": [
+        "vulnerability_prioritization",
+        "api_authorization_reasoning",
+        "safe_verification_planning",
+        "secure_code_review",
+        "configuration_review",
+        "dependency_risk_reasoning"
+      ],
+      "status": "v3.0-rc"
+    },
+    {
+      "project_id": "security-knowledge-base",
+      "name": "Security Knowledge Base & Agent Memory Lab",
+      "focus": "Knowledge, Safety Policy, Agent Memory, Task Routing",
+      "repo": "https://github.com/suiyisuixing/security-knowledge-base",
+      "skills": [
+        "authorized_recon_planning",
+        "safety_boundary_classification",
+        "task_routing"
+      ],
+      "status": "v3.0-rc"
+    }
+  ]
+}

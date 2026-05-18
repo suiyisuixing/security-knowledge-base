@@ -1,0 +1,16 @@
+{
+  "profile_id": "default-learning-profile",
+  "display_name": "Portfolio Author",
+  "goals": [
+    "Understand AI/RAG security fundamentals",
+    "Build a defensible SOC triage workflow",
+    "Reason about CVE prioritization with KEV and EPSS",
+    "Practice safe verification planning"
+  ],
+  "preferences": {
+    "explanation_style": "concept-first, then defensive verification",
+    "report_style": "structured with citations"
+  },
+  "created_at": "2026-05-18",
+  "notes": "Local-only learning profile; contains no sensitive personal data."
+}

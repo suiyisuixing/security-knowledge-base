@@ -1,0 +1,7 @@
+{
+  "completed_labs": [
+    {"lab_id": "rag-acl-basic", "related_project": "llm-security-lab", "completed_at": "2026-05-10"},
+    {"lab_id": "sigma-rule-writing-basic", "related_project": "security-log-ai-assistant", "completed_at": "2026-05-12"},
+    {"lab_id": "cvss-environmental-scoring", "related_project": "vulnerability-intelligence-lab", "completed_at": "2026-05-14"}
+  ]
+}

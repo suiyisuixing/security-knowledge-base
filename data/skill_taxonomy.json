@@ -1,0 +1,116 @@
+{
+  "skills": [
+    {
+      "skill_id": "prompt_injection_reasoning",
+      "name": "Prompt Injection Reasoning",
+      "domain": "ai_security",
+      "description": "Reason about how untrusted text can override model instructions and design defenses.",
+      "related_projects": ["llm-security-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "rag_access_control",
+      "name": "RAG Access Control",
+      "domain": "ai_security",
+      "description": "Enforce per-principal access at the retrieval boundary in RAG systems.",
+      "related_projects": ["llm-security-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "secure_retrieval_design",
+      "name": "Secure Retrieval Design",
+      "domain": "ai_security",
+      "description": "Design retrieval pipelines with provenance, validation, and safe prompt assembly.",
+      "related_projects": ["llm-security-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "log_analysis",
+      "name": "Log Analysis",
+      "domain": "detection_engineering",
+      "description": "Read structured logs to reconstruct activity and support triage.",
+      "related_projects": ["security-log-ai-assistant", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "mitre_mapping",
+      "name": "MITRE ATT&CK Mapping",
+      "domain": "detection_engineering",
+      "description": "Map detections and incidents to the MITRE ATT&CK framework.",
+      "related_projects": ["security-log-ai-assistant", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "alert_triage",
+      "name": "Alert Triage",
+      "domain": "detection_engineering",
+      "description": "Triage incoming alerts with consistent enrichment and decisions.",
+      "related_projects": ["security-log-ai-assistant", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "detection_engineering",
+      "name": "Detection Engineering",
+      "domain": "detection_engineering",
+      "description": "Design, write, review, and tune detection content.",
+      "related_projects": ["security-log-ai-assistant", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "api_authorization_reasoning",
+      "name": "API Authorization Reasoning",
+      "domain": "api_security",
+      "description": "Reason about object and function-level authorization across API endpoints.",
+      "related_projects": ["vulnerability-intelligence-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "vulnerability_prioritization",
+      "name": "Vulnerability Prioritization",
+      "domain": "vulnerability_intelligence",
+      "description": "Prioritize vulnerabilities using severity, exploitability, exposure, and criticality.",
+      "related_projects": ["vulnerability-intelligence-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "safe_verification_planning",
+      "name": "Safe Verification Planning",
+      "domain": "safe_boundaries",
+      "description": "Plan minimal, observable verification of findings inside authorized scope.",
+      "related_projects": ["vulnerability-intelligence-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "secure_code_review",
+      "name": "Secure Code Review",
+      "domain": "secure_coding",
+      "description": "Review code for authentication, authorization, validation, and secrets risks.",
+      "related_projects": ["vulnerability-intelligence-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "configuration_review",
+      "name": "Configuration Review",
+      "domain": "secure_coding",
+      "description": "Review configurations for least privilege, exposure, and safe defaults.",
+      "related_projects": ["vulnerability-intelligence-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "dependency_risk_reasoning",
+      "name": "Dependency Risk Reasoning",
+      "domain": "vulnerability_intelligence",
+      "description": "Reason about third-party dependency risk via SBOM and CVE data.",
+      "related_projects": ["vulnerability-intelligence-lab", "security-knowledge-base"]
+    },
+    {
+      "skill_id": "authorized_recon_planning",
+      "name": "Authorized Reconnaissance Planning",
+      "domain": "safe_boundaries",
+      "description": "Plan limited reconnaissance inside documented authorization.",
+      "related_projects": ["security-knowledge-base", "vulnerability-intelligence-lab"]
+    },
+    {
+      "skill_id": "safety_boundary_classification",
+      "name": "Safety Boundary Classification",
+      "domain": "safe_boundaries",
+      "description": "Classify requests as allowed, needing confirmation, or blocked.",
+      "related_projects": ["security-knowledge-base"]
+    },
+    {
+      "skill_id": "task_routing",
+      "name": "Task Routing",
+      "domain": "agent",
+      "description": "Route a security task to the appropriate portfolio project and skill.",
+      "related_projects": ["security-knowledge-base"]
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "policy_version": "v3.0-rc",
+  "classes": {
+    "allowed_learning": {
+      "description": "Conceptual or educational question about security topics.",
+      "allowed": true,
+      "reason": "Educational content with no operational risk.",
+      "safe_redirect": "Provide concept explanation grounded in the local knowledge base.",
+      "examples": [
+        "Explain what BOLA is.",
+        "What is CVSS?",
+        "Describe prompt injection."
+      ]
+    },
+    "allowed_defensive": {
+      "description": "Defensive analysis, monitoring, or detection design.",
+      "allowed": true,
+      "reason": "Defensive activity with no third-party impact.",
+      "safe_redirect": "Suggest detection rules or monitoring guidance.",
+      "examples": [
+        "Help me write a detection for suspicious PowerShell.",
+        "Review my SOC triage playbook."
+      ]
+    },
+    "allowed_local_lab": {
+      "description": "Request applies to an isolated local lab the user controls.",
+      "allowed": true,
+      "reason": "Activity occurs inside a user-controlled local environment.",
+      "safe_redirect": "Provide guidance scoped to local lab use.",
+      "examples": [
+        "In my local lab, how do I test BOLA?",
+        "I have a vulnerable VM at home; how do I observe SSRF safely?"
+      ]
+    },
+    "allowed_authorized_testing": {
+      "description": "Request applies to an explicitly authorized engagement.",
+      "allowed": true,
+      "reason": "Activity is inside a documented authorization.",
+      "safe_redirect": "Provide guidance scoped to the engagement.",
+      "examples": [
+        "I have written authorization for this internal app; how should I plan the review?",
+        "Bug bounty scope includes this target; what is a safe verification approach?"
+      ]
+    },
+    "allowed_code_review": {
+      "description": "Code, configuration, dependency, or OpenAPI review.",
+      "allowed": true,
+      "reason": "Static reasoning over artifacts the user owns or can share.",
+      "safe_redirect": "Provide secure code review guidance.",
+      "examples": [
+        "Review this Python handler for authorization issues.",
+        "What should I look for in this OpenAPI spec?"
+      ]
+    },
+    "allowed_report_generation": {
+      "description": "Generate or improve a written security report.",
+      "allowed": true,
+      "reason": "Documentation activity with no operational risk.",
+      "safe_redirect": "Help structure the report and review boundary statements.",
+      "examples": [
+        "Help me write a vulnerability report.",
+        "Improve the structure of my SOC weekly summary."
+      ]
+    },
+    "allowed_authorized_recon_planning": {
+      "description": "Plan limited reconnaissance inside an authorized scope.",
+      "allowed": true,
+      "reason": "Planning artifact for authorized activity. Execution remains the responsibility of the authorized human.",
+      "safe_redirect": "Produce a written plan with scope, guardrails, and stop conditions.",
+      "examples": [
+        "Help me plan limited authorized recon for an internal asset I own.",
+        "Draft a recon plan for a target within my bug bounty scope."
+      ]
+    },
+    "allowed_authorized_low_risk_check_planning": {
+      "description": "Plan low-risk security checks (configuration review, header review) for owned or authorized assets.",
+      "allowed": true,
+      "reason": "Planning artifact for low-risk activity inside scope.",
+      "safe_redirect": "Produce a written plan that prefers passive observation.",
+      "examples": [
+        "Plan a low-risk security check for my own staging server.",
+        "Help me plan a header review for my own website."
+      ]
+    },
+    "needs_authorization_confirmation": {
+      "description": "Request mentions a target but does not state ownership or authorization.",
+      "allowed": false,
+      "reason": "Authorization is required before any active work.",
+      "safe_redirect": "Ask the user to confirm scope and authorization, or redirect to local lab.",
+      "examples": [
+        "Check this domain for issues.",
+        "Look at this server."
+      ]
+    },
+    "needs_scope_confirmation": {
+      "description": "Request is broad and lacks defined scope.",
+      "allowed": false,
+      "reason": "Scope must be defined before guidance can be safe.",
+      "safe_redirect": "Ask the user to define scope and assets.",
+      "examples": [
+        "How do I assess our infrastructure?",
+        "What should I do about our security posture?"
+      ]
+    },
+    "needs_rate_limit_confirmation": {
+      "description": "Request mentions volume of requests or scanning intensity.",
+      "allowed": false,
+      "reason": "Rate-limit considerations are required for safe activity.",
+      "safe_redirect": "Ask for explicit rate limits and scope.",
+      "examples": [
+        "How fast can I scan?",
+        "How many requests can I send?"
+      ]
+    },
+    "needs_target_ownership_confirmation": {
+      "description": "Request names a target but ownership is unclear.",
+      "allowed": false,
+      "reason": "Target ownership must be confirmed.",
+      "safe_redirect": "Ask the user to confirm ownership or authorization for the target.",
+      "examples": [
+        "Help me check example.com.",
+        "Look at this IP address."
+      ]
+    },
+    "blocked_unauthorized_public_scan": {
+      "description": "Request asks for scanning a public or third-party target without authorization.",
+      "allowed": false,
+      "reason": "Unauthorized scanning of third-party targets is not supported.",
+      "safe_redirect": "Offer local lab guidance or suggest an authorized assessment process.",
+      "examples": [
+        "Scan this public IP for vulnerabilities.",
+        "Run nmap against this domain."
+      ]
+    },
+    "blocked_credential_attack": {
+      "description": "Request asks for credential attacks (brute force, stuffing, cracking).",
+      "allowed": false,
+      "reason": "Credential attacks on third-party systems are not supported.",
+      "safe_redirect": "Offer defensive guidance (MFA, monitoring, rate limiting).",
+      "examples": [
+        "Brute force this login.",
+        "Crack these hashes."
+      ]
+    },
+    "blocked_exploit_weaponization": {
+      "description": "Request asks for weaponized exploit code.",
+      "allowed": false,
+      "reason": "Weaponized exploit content is not supported.",
+      "safe_redirect": "Offer remediation reasoning or defensive verification planning.",
+      "examples": [
+        "Write a working exploit for this CVE.",
+        "Give me a payload that gets shell on this version."
+      ]
+    },
+    "blocked_persistence": {
+      "description": "Request asks for installing persistence or backdoors.",
+      "allowed": false,
+      "reason": "Persistence and backdoor installation are not supported.",
+      "safe_redirect": "Offer detection guidance for persistence techniques.",
+      "examples": [
+        "Deploy a backdoor.",
+        "Set up persistence on this host."
+      ]
+    },
+    "blocked_evasion": {
+      "description": "Request asks for defense evasion or anti-forensics.",
+      "allowed": false,
+      "reason": "Evasion content is not supported.",
+      "safe_redirect": "Offer detection-engineering guidance for the related technique.",
+      "examples": [
+        "How do I evade EDR detection?",
+        "Help me bypass the SIEM."
+      ]
+    },
+    "blocked_exfiltration": {
+      "description": "Request asks for data exfiltration techniques.",
+      "allowed": false,
+      "reason": "Data exfiltration is not supported.",
+      "safe_redirect": "Offer DLP and monitoring guidance.",
+      "examples": [
+        "Exfiltrate this database.",
+        "Dump and send out this data."
+      ]
+    },
+    "blocked_destructive_action": {
+      "description": "Request asks for destructive actions.",
+      "allowed": false,
+      "reason": "Destructive actions are not supported.",
+      "safe_redirect": "Offer safe alternatives or refuse.",
+      "examples": [
+        "Delete all files on this server.",
+        "Wipe this system."
+      ]
+    },
+    "blocked_malware": {
+      "description": "Request asks for malware creation or distribution.",
+      "allowed": false,
+      "reason": "Malware creation or distribution is not supported.",
+      "safe_redirect": "Offer detection or defense guidance.",
+      "examples": [
+        "Write me a ransomware sample.",
+        "Build a keylogger I can deploy."
+      ]
+    }
+  },
+  "keywords": {
+    "blocked_unauthorized_public_scan": [
+      "scan this public",
+      "scan this ip",
+      "scan this domain",
+      "nmap",
+      "masscan",
+      "sqlmap",
+      "nikto",
+      "gobuster",
+      "ffuf",
+      "attack this target",
+      "attack this site"
+    ],
+    "blocked_credential_attack": [
+      "brute force",
+      "credential stuffing",
+      "crack password",
+      "crack hash",
+      "steal password",
+      "steal credentials",
+      "dump password"
+    ],
+    "blocked_exploit_weaponization": [
+      "working exploit",
+      "weaponized exploit",
+      "give me a payload",
+      "rce payload",
+      "shell payload",
+      "get shell",
+      "reverse shell payload"
+    ],
+    "blocked_persistence": [
+      "deploy a backdoor",
+      "install persistence",
+      "create backdoor",
+      "rootkit",
+      "implant"
+    ],
+    "blocked_evasion": [
+      "evade detection",
+      "evade edr",
+      "evade av",
+      "evade siem",
+      "bypass edr",
+      "bypass av",
+      "bypass siem",
+      "bypass detection",
+      "av bypass",
+      "edr bypass",
+      "anti-forensics",
+      "anti forensics"
+    ],
+    "blocked_exfiltration": [
+      "exfiltrate",
+      "exfiltration",
+      "dump database",
+      "siphon data",
+      "send data out",
+      "data exfiltration"
+    ],
+    "blocked_destructive_action": [
+      "delete all files",
+      "wipe this system",
+      "rm -rf",
+      "format disk",
+      "destroy data"
+    ],
+    "blocked_malware": [
+      "ransomware",
+      "write malware",
+      "keylogger",
+      "trojan",
+      "worm sample"
+    ],
+    "needs_authorization_confirmation": [
+      "check this site",
+      "look at this server",
+      "look at this domain",
+      "check this host"
+    ],
+    "needs_scope_confirmation": [
+      "our infrastructure",
+      "our company",
+      "our environment",
+      "security posture"
+    ],
+    "needs_rate_limit_confirmation": [
+      "how fast can i scan",
+      "how many requests",
+      "rate of scanning"
+    ],
+    "needs_target_ownership_confirmation": [
+      "check this domain",
+      "this ip address",
+      "this public host"
+    ],
+    "allowed_local_lab": [
+      "my local lab",
+      "in my lab",
+      "local vm",
+      "isolated lab",
+      "home lab"
+    ],
+    "allowed_authorized_testing": [
+      "i have authorization",
+      "authorized scope",
+      "bug bounty scope",
+      "explicit authorization",
+      "engagement scope"
+    ],
+    "allowed_authorized_recon_planning": [
+      "plan limited recon",
+      "plan authorized recon",
+      "plan recon for my own",
+      "plan recon inside scope"
+    ],
+    "allowed_authorized_low_risk_check_planning": [
+      "low-risk check",
+      "header review",
+      "configuration review for my own",
+      "review my own server"
+    ],
+    "allowed_code_review": [
+      "review this code",
+      "code review",
+      "review this handler",
+      "review this openapi",
+      "review this config"
+    ],
+    "allowed_report_generation": [
+      "write a report",
+      "improve this report",
+      "draft a report",
+      "summary report"
+    ],
+    "allowed_defensive": [
+      "detection",
+      "monitoring",
+      "soc playbook",
+      "triage",
+      "incident response",
+      "defensive review"
+    ],
+    "allowed_learning": [
+      "explain",
+      "what is",
+      "define",
+      "describe",
+      "concept",
+      "overview",
+      "tutorial"
+    ]
+  }
+}

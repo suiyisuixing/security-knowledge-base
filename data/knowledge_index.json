@@ -1,0 +1,13 @@
+{
+  "_comment": "This file is generated at runtime by backend.app.knowledge_loader.build_knowledge_index(). The placeholder below is committed so the project tree is valid before the first run.",
+  "documents": [],
+  "domains": [
+    "ai_security",
+    "api_security",
+    "detection_engineering",
+    "vulnerability_intelligence",
+    "secure_coding",
+    "safe_boundaries"
+  ],
+  "generated": false
+}

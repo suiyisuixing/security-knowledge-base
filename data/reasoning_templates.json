@@ -1,0 +1,134 @@
+{
+  "templates": [
+    {
+      "template_id": "api_authorization_review",
+      "name": "API Authorization Review",
+      "domain": "api_security",
+      "steps": [
+        "Enumerate endpoints and the principals each one expects.",
+        "Identify object identifiers in the request shape.",
+        "Confirm there is an explicit ownership or role check on each path.",
+        "Note endpoints that route to shared service-layer functions without identity context.",
+        "Add automated tests that confirm allowed and denied access for each role.",
+        "Recommend centralizing authorization at a single layer."
+      ],
+      "forbidden_steps": [
+        "Do not test authorization on third-party systems without written authorization.",
+        "Do not exfiltrate data even from owned systems."
+      ]
+    },
+    {
+      "template_id": "dependency_risk_review",
+      "name": "Dependency Risk Review",
+      "domain": "vulnerability_intelligence",
+      "steps": [
+        "Inventory direct and transitive dependencies.",
+        "Join the inventory against CVE data, KEV status, and EPSS scores.",
+        "Filter to findings whose code paths are reachable in this deployment.",
+        "Prioritize using a written policy.",
+        "Plan remediation or compensating controls.",
+        "Verify fixes in a representative environment."
+      ],
+      "forbidden_steps": [
+        "Do not download or execute exploit code.",
+        "Do not test dependencies in production without authorization."
+      ]
+    },
+    {
+      "template_id": "configuration_risk_review",
+      "name": "Configuration Risk Review",
+      "domain": "secure_coding",
+      "steps": [
+        "Inventory configuration files in scope.",
+        "Compare against a written baseline.",
+        "Highlight risky defaults, exposed services, or missing controls.",
+        "Recommend least-privilege adjustments.",
+        "Plan a verification step in a non-production environment."
+      ],
+      "forbidden_steps": [
+        "Do not modify production without authorization.",
+        "Do not test configurations on third-party systems."
+      ]
+    },
+    {
+      "template_id": "rag_security_review",
+      "name": "RAG Security Review",
+      "domain": "ai_security",
+      "steps": [
+        "Document the retrieval boundary and principals.",
+        "Verify access control happens before generation.",
+        "Tag retrieved chunks with provenance.",
+        "Test for cross-tenant leakage with canary chunks.",
+        "Constrain tool invocation via allow-lists."
+      ],
+      "forbidden_steps": [
+        "Do not test RAG access on third-party services.",
+        "Do not include real user data in test chunks."
+      ]
+    },
+    {
+      "template_id": "log_detection_review",
+      "name": "Log and Detection Review",
+      "domain": "detection_engineering",
+      "steps": [
+        "Map detections to ATT&CK techniques.",
+        "Confirm required data sources are flowing.",
+        "Sample alerts for triage quality.",
+        "Identify chronic false positives and propose tuning.",
+        "Update detection coverage report."
+      ],
+      "forbidden_steps": [
+        "Do not include third-party private telemetry in tests.",
+        "Do not exfiltrate log data."
+      ]
+    },
+    {
+      "template_id": "authorized_recon_planning",
+      "name": "Authorized Reconnaissance Planning",
+      "domain": "safe_boundaries",
+      "steps": [
+        "Confirm written authorization and scope.",
+        "List target assets inside scope.",
+        "Define low-risk methods and rate limits.",
+        "Define stop conditions and escalation path.",
+        "Define expected outputs and reporting."
+      ],
+      "forbidden_steps": [
+        "Do not execute scans without authorized human action.",
+        "Do not include third-party targets outside scope."
+      ]
+    },
+    {
+      "template_id": "safe_verification_plan",
+      "name": "Safe Verification Plan",
+      "domain": "safe_boundaries",
+      "steps": [
+        "Restate the finding and its scope.",
+        "Choose the least powerful method that answers the question.",
+        "Prefer passive observation.",
+        "Define evidence collection in a redacted form.",
+        "Define stop conditions and review path."
+      ],
+      "forbidden_steps": [
+        "Do not produce weaponized payloads.",
+        "Do not test on third-party systems."
+      ]
+    },
+    {
+      "template_id": "remediation_plan",
+      "name": "Remediation Plan",
+      "domain": "vulnerability_intelligence",
+      "steps": [
+        "Summarize the finding and its impact.",
+        "List remediation options ordered by cost and durability.",
+        "Recommend a primary remediation and compensating controls.",
+        "Define verification steps and timeline.",
+        "Define communication to stakeholders."
+      ],
+      "forbidden_steps": [
+        "Do not assume third-party authorization that has not been documented.",
+        "Do not include exploit code."
+      ]
+    }
+  ]
+}

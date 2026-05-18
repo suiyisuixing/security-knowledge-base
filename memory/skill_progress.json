@@ -1,0 +1,84 @@
+{
+  "skills": [
+    {
+      "skill_id": "prompt_injection_reasoning",
+      "status": "in_progress",
+      "notes": "Local labs in llm-security-lab"
+    },
+    {
+      "skill_id": "rag_access_control",
+      "status": "in_progress",
+      "notes": "RAG ACL exercises"
+    },
+    {
+      "skill_id": "secure_retrieval_design",
+      "status": "planned",
+      "notes": "Pending design exercise"
+    },
+    {
+      "skill_id": "log_analysis",
+      "status": "in_progress",
+      "notes": "test"
+    },
+    {
+      "skill_id": "mitre_mapping",
+      "status": "in_progress",
+      "notes": "Coverage map in progress"
+    },
+    {
+      "skill_id": "alert_triage",
+      "status": "in_progress",
+      "notes": "Triage playbook drafted"
+    },
+    {
+      "skill_id": "detection_engineering",
+      "status": "in_progress",
+      "notes": "Sigma rules in progress"
+    },
+    {
+      "skill_id": "api_authorization_reasoning",
+      "status": "in_progress",
+      "notes": "BOLA/BFLA reviews in vulnerability-intelligence-lab"
+    },
+    {
+      "skill_id": "vulnerability_prioritization",
+      "status": "in_progress",
+      "notes": "KEV/EPSS reasoning"
+    },
+    {
+      "skill_id": "safe_verification_planning",
+      "status": "planned",
+      "notes": "Templates in this knowledge base"
+    },
+    {
+      "skill_id": "secure_code_review",
+      "status": "in_progress",
+      "notes": "Reviews on local code"
+    },
+    {
+      "skill_id": "configuration_review",
+      "status": "planned",
+      "notes": "Pending baseline definition"
+    },
+    {
+      "skill_id": "dependency_risk_reasoning",
+      "status": "in_progress",
+      "notes": "SBOM reasoning in vulnerability-intelligence-lab"
+    },
+    {
+      "skill_id": "authorized_recon_planning",
+      "status": "planned",
+      "notes": "Templates in this knowledge base"
+    },
+    {
+      "skill_id": "safety_boundary_classification",
+      "status": "in_progress",
+      "notes": "Policy in this knowledge base"
+    },
+    {
+      "skill_id": "task_routing",
+      "status": "in_progress",
+      "notes": "Router in this knowledge base"
+    }
+  ]
+}
