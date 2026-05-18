@@ -1,0 +1,21 @@
+{
+  "$schema_name": "skill_taxonomy",
+  "type": "object",
+  "required": ["skills"],
+  "properties": {
+    "skills": {
+      "type": "list",
+      "items": {
+        "type": "object",
+        "required": ["skill_id", "name", "domain"],
+        "properties": {
+          "skill_id": {"type": "string"},
+          "name": {"type": "string"},
+          "domain": {"type": "string"},
+          "description": {"type": "string"},
+          "related_projects": {"type": "list", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

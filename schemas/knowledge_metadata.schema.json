@@ -1,0 +1,16 @@
+{
+  "$schema_name": "knowledge_metadata",
+  "type": "object",
+  "required": ["id", "title", "domain"],
+  "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "domain": {"type": "string", "enum": ["ai_security", "api_security", "detection_engineering", "vulnerability_intelligence", "secure_coding", "safe_boundaries"]},
+    "difficulty": {"type": "string"},
+    "related_projects": {"type": "list", "items": {"type": "string"}},
+    "related_skills": {"type": "list", "items": {"type": "string"}},
+    "tags": {"type": "list", "items": {"type": "string"}},
+    "safe_use": {"type": "list", "items": {"type": "string"}},
+    "forbidden_use": {"type": "list", "items": {"type": "string"}}
+  }
+}

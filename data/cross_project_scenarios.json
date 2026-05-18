@@ -1,0 +1,36 @@
+{
+  "scenarios": [
+    {
+      "scenario_id": "cross-001",
+      "title": "RAG ingestion pipeline review",
+      "query": "Review a RAG ingestion pipeline for prompt injection risk.",
+      "primary_project": "llm-security-lab",
+      "supporting_projects": ["security-knowledge-base", "vulnerability-intelligence-lab"],
+      "knowledge_domains": ["ai_security", "api_security"]
+    },
+    {
+      "scenario_id": "cross-002",
+      "title": "SIEM alert + CVE correlation",
+      "query": "Correlate SIEM alerts to MITRE techniques and prioritize underlying CVEs.",
+      "primary_project": "security-log-ai-assistant",
+      "supporting_projects": ["vulnerability-intelligence-lab", "security-knowledge-base"],
+      "knowledge_domains": ["detection_engineering", "vulnerability_intelligence"]
+    },
+    {
+      "scenario_id": "cross-003",
+      "title": "Authorized API authorization review",
+      "query": "Plan a defensive review of API authorization for my staging server.",
+      "primary_project": "vulnerability-intelligence-lab",
+      "supporting_projects": ["security-knowledge-base"],
+      "knowledge_domains": ["api_security", "safe_boundaries"]
+    },
+    {
+      "scenario_id": "cross-004",
+      "title": "Safety boundary explanation",
+      "query": "Explain why an unauthorized public scan is blocked.",
+      "primary_project": "security-knowledge-base",
+      "supporting_projects": [],
+      "knowledge_domains": ["safe_boundaries"]
+    }
+  ]
+}

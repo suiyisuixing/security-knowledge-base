@@ -1,0 +1,14 @@
+{
+  "sample_id": "learning_path_ai_security",
+  "endpoint": "POST /learning-path/generate",
+  "request": {"goal": "AI security", "current_skills": []},
+  "response": {
+    "goal": "AI security",
+    "steps": [
+      {"step": 1, "skill_id": "prompt_injection_reasoning", "title": "Prompt injection reasoning", "notes": "Learn direct and indirect prompt injection patterns."},
+      {"step": 2, "skill_id": "secure_retrieval_design", "title": "Secure retrieval design", "notes": "Design RAG flows that resist context contamination."},
+      {"step": 3, "skill_id": "rag_access_control", "title": "RAG access control", "notes": "Apply per-user ACL on retrieved knowledge."}
+    ],
+    "summary": "AI security path: 3 skills."
+  }
+}

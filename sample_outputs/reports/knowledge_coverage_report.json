@@ -1,0 +1,12 @@
+{
+  "sample_id": "knowledge_coverage_report",
+  "endpoint": "POST /report/knowledge-coverage",
+  "report_excerpt": {
+    "title": "Knowledge Coverage Report",
+    "sections": [
+      {"heading": "Summary", "lines": ["Total documents: 32", "Domains: 6"]},
+      {"heading": "Per Domain", "lines": ["ai_security: 5", "api_security: 6", "detection_engineering: 5", "vulnerability_intelligence: 5", "secure_coding: 5", "safe_boundaries: 6"]},
+      {"heading": "Safety Boundary", "lines": ["Local knowledge only. No external scanning. No exploit code."]}
+    ]
+  }
+}

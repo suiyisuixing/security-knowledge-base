@@ -1,0 +1,12 @@
+{
+  "sample_id": "route_rag_to_A",
+  "endpoint": "POST /router/route-task",
+  "request": {"query": "How should I evaluate prompt injection on a RAG pipeline?"},
+  "response": {
+    "query": "How should I evaluate prompt injection on a RAG pipeline?",
+    "project_id": "llm-security-lab",
+    "knowledge_domain": "ai_security",
+    "skill_id": "prompt_injection_reasoning",
+    "explanation": "Routed query to project=llm-security-lab domain=ai_security skill=prompt_injection_reasoning based on keyword rules. Target: LLM Security Lab."
+  }
+}

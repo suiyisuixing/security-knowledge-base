@@ -1,5 +1,7 @@
 # Security Report — Security Knowledge Base & Agent Memory Lab
 
+**Version: v5.0-rc · model-free · local-only · defensive**
+
 ## What this project does
 
 Provides a local, file-based cybersecurity knowledge base, a transparent
@@ -51,13 +53,36 @@ assessment processes.
 vulnerability reasoning, safe verification planning, remediation reasoning,
 task routing. Each task has a deterministic expected output and a small rubric.
 
+## v5.0 additions
+
+- **Rule-based reasoning** — `reasoning/` package adds decision-tree,
+  risk-scoring, evidence-chain, template-rendering, and explanation
+  modules. All deterministic.
+- **Hybrid retrieval** — `retrieval/` adds chunking, lexical scoring,
+  light-weight semantic-style expansion, source-trust scoring, citation
+  grounding, and faithfulness checks. Still no embeddings, no vector DB.
+- **Agent hub** — `agent_hub/` adds cross-project context, skill evidence
+  tracking, portfolio readiness scoring (10 categories), a 5-level
+  maturity model, and a rule-based orchestrator that picks one of eight
+  reasoning modes. A/B/C source files are never read.
+- **Stability layer** — JSON-schema-like definitions under `schemas/`,
+  `schema_validator.py`, `integrity_checker.py`, `error_model.py`,
+  `diagnostics.py`, and `/diagnostics/*` endpoints.
+- **Reviewer experience** — bundled `sample_outputs/` JSON snapshots,
+  Reviewer Mode panel, portfolio summary card, 12-step quick path.
+
 ## Security boundaries
 
-- No network calls in `backend/app/`.
+- No network calls in `backend/app/`, `reasoning/`, `retrieval/`,
+  `agent_hub/`.
 - No `subprocess`, no `shell=True`, no `os.system`.
+- No LLM connector. No `llm/` directory. No `model_config.json`.
+- No external model-provider API URLs of any kind.
 - No real API keys committed.
 - No real third-party target hostnames or IPs.
-- No attack-command strings (nmap, masscan, sqlmap, etc.).
+- No attack-command strings (nmap, masscan, sqlmap, ffuf, gobuster,
+  nikto, Hydra). All enforced by `tests/test_security_boundaries.py` and
+  `tests/test_v5_security_boundaries.py`.
 
 ## What this project does not do
 

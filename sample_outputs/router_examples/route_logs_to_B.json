@@ -1,0 +1,12 @@
+{
+  "sample_id": "route_logs_to_B",
+  "endpoint": "POST /router/route-task",
+  "request": {"query": "Help me triage SIEM alerts mapped to MITRE techniques."},
+  "response": {
+    "query": "Help me triage SIEM alerts mapped to MITRE techniques.",
+    "project_id": "security-log-ai-assistant",
+    "knowledge_domain": "detection_engineering",
+    "skill_id": "alert_triage",
+    "explanation": "Routed query to project=security-log-ai-assistant domain=detection_engineering skill=alert_triage based on keyword rules. Target: Security Log AI Assistant."
+  }
+}

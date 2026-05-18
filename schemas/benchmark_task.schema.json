@@ -1,0 +1,22 @@
+{
+  "$schema_name": "benchmark_task",
+  "type": "object",
+  "required": ["tasks"],
+  "properties": {
+    "tasks": {
+      "type": "list",
+      "items": {
+        "type": "object",
+        "required": ["task_id", "domain", "type", "input", "expected_output"],
+        "properties": {
+          "task_id": {"type": "string"},
+          "domain": {"type": "string"},
+          "type": {"type": "string", "enum": ["knowledge_qa", "safety_classification", "vulnerability_reasoning", "safe_verification_planning", "remediation_reasoning", "task_routing"]},
+          "input": {"type": "string"},
+          "expected_output": {"type": "dict"},
+          "rubric": {"type": "dict"}
+        }
+      }
+    }
+  }
+}

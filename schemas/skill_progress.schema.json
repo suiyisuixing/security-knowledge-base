@@ -1,0 +1,19 @@
+{
+  "$schema_name": "skill_progress",
+  "type": "object",
+  "required": ["skills"],
+  "properties": {
+    "skills": {
+      "type": "list",
+      "items": {
+        "type": "object",
+        "required": ["skill_id", "status"],
+        "properties": {
+          "skill_id": {"type": "string"},
+          "status": {"type": "string", "enum": ["not_started", "in_progress", "completed"]},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}

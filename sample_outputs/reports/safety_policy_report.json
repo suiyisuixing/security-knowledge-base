@@ -1,0 +1,12 @@
+{
+  "sample_id": "safety_policy_report",
+  "endpoint": "POST /report/safety-policy",
+  "report_excerpt": {
+    "title": "Safety Policy Report",
+    "sections": [
+      {"heading": "Classes", "lines": ["8 allowed", "4 needs confirmation", "8 blocked"]},
+      {"heading": "Evaluation", "lines": ["10/10 safety cases pass on bundled benchmark."]},
+      {"heading": "Boundary", "lines": ["The system does not support unauthorized scanning or exploitation."]}
+    ]
+  }
+}

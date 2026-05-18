@@ -1,0 +1,12 @@
+{
+  "sample_id": "safety_allowed_learning",
+  "endpoint": "POST /safety/classify",
+  "request": {"text": "Explain what BOLA is."},
+  "response": {
+    "classification": "allowed_learning",
+    "allowed": true,
+    "reason": "Educational content with no operational risk.",
+    "safe_redirect": "Provide concept explanation grounded in the local knowledge base.",
+    "explanation": "Decision: ALLOWED. Classification: allowed_learning."
+  }
+}

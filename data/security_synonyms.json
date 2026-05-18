@@ -1,0 +1,23 @@
+{
+  "map": {
+    "idor": ["bola", "broken object level authorization"],
+    "bola": ["idor", "broken object level authorization"],
+    "broken object level authorization": ["bola", "idor"],
+    "prompt injection": ["instruction override", "jailbreak", "indirect injection"],
+    "instruction override": ["prompt injection"],
+    "rag security": ["retrieval security", "rag access control"],
+    "retrieval security": ["rag security"],
+    "mitre": ["attack technique", "att&ck"],
+    "attack technique": ["mitre"],
+    "cve": ["vulnerability identifier"],
+    "cvss": ["severity score"],
+    "epss": ["exploitation probability"],
+    "kev": ["known exploited vulnerability"],
+    "secrets": ["credentials", "api key"],
+    "credentials": ["secrets"],
+    "authz": ["authorization"],
+    "authn": ["authentication"],
+    "safe verification": ["authorized validation"],
+    "defensive review": ["security assessment"]
+  }
+}

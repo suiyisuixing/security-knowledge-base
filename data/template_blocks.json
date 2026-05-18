@@ -1,0 +1,7 @@
+{
+  "blocks": {
+    "safety_footer": "Safety boundary: this output is for local labs, defensive analysis, and explicitly authorized work. The system does not support unauthorized scanning or exploitation.",
+    "ai_disclosure": "This project was developed as an AI-assisted learning and engineering project. AI tools were used for planning, documentation support, debugging guidance, and review assistance, while all repository commits and project decisions were managed by the author.",
+    "local_only_note": "Local-only, model-free, deterministic, defensive."
+  }
+}

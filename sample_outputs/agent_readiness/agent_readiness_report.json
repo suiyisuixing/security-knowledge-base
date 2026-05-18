@@ -1,0 +1,14 @@
+{
+  "sample_id": "agent_readiness_report",
+  "endpoint": "POST /report/agent-readiness",
+  "report_excerpt": {
+    "title": "Agent Readiness Report",
+    "sections": [
+      {"heading": "Knowledge", "lines": ["32 documents indexed; 6 domains; metadata complete."]},
+      {"heading": "Safety", "lines": ["20 classes; 100% pass on bundled benchmark."]},
+      {"heading": "Routing", "lines": ["A/B/C/D rules cover RAG / logs / CVE / policy queries."]},
+      {"heading": "Memory", "lines": ["Profile loaded from memory/*.json; sensitive fields filtered."]},
+      {"heading": "AI-assisted Development Disclosure", "lines": ["This project was developed as an AI-assisted learning and engineering project. AI tools were used for planning, documentation support, debugging guidance, and review assistance, while all repository commits and project decisions were managed by the author."]}
+    ]
+  }
+}

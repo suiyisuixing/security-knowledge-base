@@ -1,0 +1,15 @@
+{
+  "sample_id": "grounded_answer_prompt_injection",
+  "endpoint": "POST /knowledge/ask",
+  "request": {"query": "Explain prompt injection", "top_k": 3},
+  "response": {
+    "query": "Explain prompt injection",
+    "answer": "Answer to: Explain prompt injection\n\nBased on local knowledge documents:\n- [ai-prompt-injection-001] Prompt Injection (ai_security)\n  - Prompt injection is an attack where untrusted input overrides or subverts the instructions given to an LLM.\n\nSafety boundary: this answer is for local labs, defensive analysis, and explicitly authorized work. The system does not support unauthorized scanning or exploitation.",
+    "citations": [
+      {"doc_id": "ai-prompt-injection-001", "title": "Prompt Injection", "domain": "ai_security"}
+    ],
+    "safety_note": "Safety boundary: this answer is for local labs, defensive analysis, and explicitly authorized work. The system does not support unauthorized scanning or exploitation.",
+    "related_skills": ["prompt_injection_reasoning", "secure_retrieval_design"],
+    "related_projects": ["llm-security-lab"]
+  }
+}

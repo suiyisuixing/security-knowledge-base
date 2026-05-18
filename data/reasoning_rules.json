@@ -1,0 +1,88 @@
+{
+  "rules": [
+    {
+      "rule_id": "rule-block-public-scan",
+      "category": "blocked",
+      "priority": 10,
+      "any_of": ["scan this public", "scan this ip", "nmap", "masscan"],
+      "description": "Block unauthorized public scanning."
+    },
+    {
+      "rule_id": "rule-block-exploit",
+      "category": "blocked",
+      "priority": 10,
+      "any_of": ["working exploit", "weaponized exploit", "give me a payload", "rce payload", "get shell"],
+      "description": "Block exploit weaponization."
+    },
+    {
+      "rule_id": "rule-block-credential-attack",
+      "category": "blocked",
+      "priority": 10,
+      "any_of": ["brute force", "credential stuffing", "crack password", "crack hash"],
+      "description": "Block credential attack."
+    },
+    {
+      "rule_id": "rule-block-exfiltration",
+      "category": "blocked",
+      "priority": 10,
+      "any_of": ["exfiltrate", "dump database", "siphon data"],
+      "description": "Block data exfiltration."
+    },
+    {
+      "rule_id": "rule-needs-authorization",
+      "category": "needs_confirmation",
+      "priority": 8,
+      "any_of": ["check this site", "look at this server", "look at this domain"],
+      "description": "Requires authorization confirmation."
+    },
+    {
+      "rule_id": "rule-allowed-local-lab",
+      "category": "allowed",
+      "priority": 5,
+      "any_of": ["my local lab", "home lab", "local vm"],
+      "description": "Local lab activity is allowed."
+    },
+    {
+      "rule_id": "rule-allowed-learning",
+      "category": "allowed",
+      "priority": 4,
+      "any_of": ["explain", "what is", "describe", "concept"],
+      "description": "Educational query allowed."
+    },
+    {
+      "rule_id": "rule-allowed-defensive",
+      "category": "allowed",
+      "priority": 4,
+      "any_of": ["detection", "monitoring", "soc playbook", "triage", "defensive review"],
+      "description": "Defensive activity allowed."
+    },
+    {
+      "rule_id": "rule-route-ai-security",
+      "category": "informational",
+      "priority": 2,
+      "any_of": ["rag", "prompt injection", "llm"],
+      "description": "Route to project A — llm-security-lab."
+    },
+    {
+      "rule_id": "rule-route-detection",
+      "category": "informational",
+      "priority": 2,
+      "any_of": ["log", "alert", "sigma", "mitre", "triage"],
+      "description": "Route to project B — security-log-ai-assistant."
+    },
+    {
+      "rule_id": "rule-route-vuln-intel",
+      "category": "informational",
+      "priority": 2,
+      "any_of": ["cve", "cvss", "kev", "epss", "sbom", "bola", "bfla", "ssrf"],
+      "description": "Route to project C — vulnerability-intelligence-lab."
+    },
+    {
+      "rule_id": "rule-route-knowledge",
+      "category": "informational",
+      "priority": 2,
+      "any_of": ["safety", "policy", "boundary", "responsible disclosure"],
+      "description": "Route to project D — security-knowledge-base."
+    }
+  ]
+}

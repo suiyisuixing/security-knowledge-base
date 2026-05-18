@@ -40,4 +40,44 @@ export const api = {
   reportSafety: () => call('/report/safety-policy', { method: 'POST' }),
   reportReadiness: () => call('/report/agent-readiness', { method: 'POST' }),
   apiSurface: () => call('/api/surface'),
+
+  // v3.1 Reviewer Experience
+  reviewerPath: () => call('/demo/reviewer-path'),
+  sampleOutputs: () => call('/demo/sample-outputs'),
+  sampleOutput: (id) => call(`/demo/sample-output/${encodeURIComponent(id)}`),
+  portfolioSummary: () => call('/demo/portfolio-summary'),
+
+  // v3.2 Diagnostics
+  diagnosticsHealth: () => call('/diagnostics/health'),
+  diagnosticsIntegrity: () => call('/diagnostics/integrity'),
+  diagnosticsSchemas: () => call('/diagnostics/schema-validation'),
+  diagnosticsProject: () => call('/diagnostics/project-status'),
+
+  // v4.0 Reasoning
+  reasoningRuleMatch: (query) => call('/reasoning/rule-match', { method: 'POST', body: JSON.stringify({ query }) }),
+  reasoningDecisionPath: (query) => call('/reasoning/decision-path', { method: 'POST', body: JSON.stringify({ query }) }),
+  reasoningRiskScore: (query) => call('/reasoning/risk-score', { method: 'POST', body: JSON.stringify({ query }) }),
+  reasoningEvidenceChain: (query) => call('/reasoning/evidence-chain', { method: 'POST', body: JSON.stringify({ query }) }),
+  reasoningReasonedAnswer: (query) => call('/reasoning/reasoned-answer', { method: 'POST', body: JSON.stringify({ query }) }),
+  reasoningPolicyExplanation: (query) => call('/reasoning/policy-explanation', { method: 'POST', body: JSON.stringify({ query }) }),
+
+  // v4.5 Hybrid Retrieval
+  hybridSearch: (body) => call('/retrieval/hybrid-search', { method: 'POST', body: JSON.stringify(body) }),
+  retrievalCompare: (query) => call('/retrieval/compare', { method: 'POST', body: JSON.stringify({ query }) }),
+  groundingReport: (answer, query) => call('/retrieval/grounding-report', { method: 'POST', body: JSON.stringify({ answer, query }) }),
+  retrievalEvaluation: () => call('/retrieval/evaluation'),
+  retrievalConflicts: () => call('/retrieval/conflicts'),
+  retrievalSourceTrust: () => call('/retrieval/source-trust'),
+
+  // v5.0 Agent Hub
+  agentHubStatus: () => call('/agent-hub/status'),
+  agentHubContext: (query) => call('/agent-hub/context', { method: 'POST', body: JSON.stringify({ query }) }),
+  agentHubOrchestrate: (query) => call('/agent-hub/orchestrate', { method: 'POST', body: JSON.stringify({ query }) }),
+  agentHubSkillEvidence: () => call('/agent-hub/skill-evidence'),
+  agentHubMissingEvidence: () => call('/agent-hub/missing-evidence'),
+  agentHubPortfolioReadiness: () => call('/agent-hub/portfolio-readiness'),
+  agentHubCrossProjectReport: () => call('/agent-hub/cross-project-report'),
+  agentHubMaturity: () => call('/agent-hub/maturity'),
+  agentHubNextActions: () => call('/agent-hub/next-actions'),
+  agentHubV5Release: () => call('/agent-hub/v5-release-report'),
 }

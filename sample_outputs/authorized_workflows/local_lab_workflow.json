@@ -1,0 +1,27 @@
+{
+  "sample_id": "local_lab_workflow",
+  "endpoint": "POST /workflow/authorized-plan",
+  "request": {"request": "Plan a safe review in my local lab.", "declared_scope": "local_lab"},
+  "response": {
+    "workflow_id": "authz-workflow-local_lab",
+    "allowed": true,
+    "required_scope": "local_lab",
+    "steps": [
+      "Confirm authorization and scope.",
+      "Identify assets within scope.",
+      "Perform low-risk information collection planning.",
+      "Generate safe verification plan.",
+      "Prepare remediation report."
+    ],
+    "blocked_actions": [
+      "No unauthorized public scanning.",
+      "No credential attacks.",
+      "No exploit weaponization.",
+      "No persistence or backdoors.",
+      "No detection evasion.",
+      "No data exfiltration.",
+      "No destructive operations."
+    ],
+    "summary": "Planning artifact only. Execution remains the responsibility of an authorized human."
+  }
+}

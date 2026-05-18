@@ -1,0 +1,9 @@
+{
+  "levels": ["informational", "low", "medium", "high", "blocked"],
+  "weights": {
+    "high_risk_keyword": 0.8,
+    "medium_risk_keyword": 0.5,
+    "low_risk_keyword": 0.2,
+    "blocked_policy": 1.0
+  }
+}

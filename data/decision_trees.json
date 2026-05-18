@@ -1,0 +1,18 @@
+{
+  "safety_tree": {
+    "root": "detect_blocked_intent",
+    "edges": [
+      {"from": "detect_blocked_intent", "condition": "matched", "to": "BLOCKED"},
+      {"from": "detect_blocked_intent", "condition": "not_matched", "to": "requires_authorization_confirmation"},
+      {"from": "requires_authorization_confirmation", "condition": "matched", "to": "NEEDS_CONFIRMATION"},
+      {"from": "requires_authorization_confirmation", "condition": "not_matched", "to": "requires_scope_confirmation"},
+      {"from": "requires_scope_confirmation", "condition": "matched", "to": "NEEDS_CONFIRMATION"},
+      {"from": "requires_scope_confirmation", "condition": "not_matched", "to": "classify_request"},
+      {"from": "classify_request", "condition": "*", "to": "ALLOWED"}
+    ]
+  },
+  "routing_tree": {
+    "root": "route_to_project",
+    "leaves": ["llm-security-lab", "security-log-ai-assistant", "vulnerability-intelligence-lab", "security-knowledge-base"]
+  }
+}

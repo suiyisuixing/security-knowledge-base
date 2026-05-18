@@ -16,7 +16,12 @@ MEMORY_DIR: Path = PROJECT_ROOT / "memory"
 REPORTS_DIR: Path = PROJECT_ROOT / "reports"
 LOGS_DIR: Path = PROJECT_ROOT / "logs"
 
-PROJECT_VERSION: str = "3.0-rc"
+PROJECT_VERSION: str = "5.0-rc"
+SCHEMAS_DIR: Path = PROJECT_ROOT / "schemas"
+SAMPLE_OUTPUTS_DIR: Path = PROJECT_ROOT / "sample_outputs"
+REASONING_DIR: Path = PROJECT_ROOT / "reasoning"
+RETRIEVAL_DIR: Path = PROJECT_ROOT / "retrieval"
+AGENT_HUB_DIR: Path = PROJECT_ROOT / "agent_hub"
 
 
 def get_project_version() -> str:

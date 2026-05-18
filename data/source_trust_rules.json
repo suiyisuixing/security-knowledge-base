@@ -1,0 +1,9 @@
+{
+  "weights": {
+    "safety": 0.45,
+    "domain_relevance": 0.35,
+    "freshness": 0.2
+  },
+  "minimum_safe_use_entries": 1,
+  "minimum_forbidden_use_entries": 1
+}

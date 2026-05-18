@@ -1,0 +1,148 @@
+{
+  "records": [
+    {
+      "skill_id": "safety_boundary_classification",
+      "project_id": "security-knowledge-base",
+      "evidence_type": "code_and_tests",
+      "artifacts": ["backend/app/safety_policy.py", "tests/test_safety_policy.py", "docs/safety_policy.md"],
+      "confidence": 0.95,
+      "status": "implemented"
+    },
+    {
+      "skill_id": "task_routing",
+      "project_id": "security-knowledge-base",
+      "evidence_type": "code_and_tests",
+      "artifacts": ["backend/app/task_router.py", "tests/test_task_router.py"],
+      "confidence": 0.95,
+      "status": "implemented"
+    },
+    {
+      "skill_id": "agent_memory",
+      "project_id": "security-knowledge-base",
+      "evidence_type": "code_and_tests",
+      "artifacts": ["backend/app/memory_store.py", "memory/user_learning_profile.json"],
+      "confidence": 0.9,
+      "status": "implemented"
+    },
+    {
+      "skill_id": "hybrid_retrieval",
+      "project_id": "security-knowledge-base",
+      "evidence_type": "code_and_tests",
+      "artifacts": ["retrieval/hybrid.py", "retrieval/lexical.py", "retrieval/semantic_light.py"],
+      "confidence": 0.92,
+      "status": "implemented"
+    },
+    {
+      "skill_id": "rule_based_reasoning",
+      "project_id": "security-knowledge-base",
+      "evidence_type": "code_and_tests",
+      "artifacts": ["reasoning/rule_engine.py", "reasoning/decision_tree.py", "reasoning/policy_reasoner.py"],
+      "confidence": 0.92,
+      "status": "implemented"
+    },
+    {
+      "skill_id": "portfolio_readiness",
+      "project_id": "security-knowledge-base",
+      "evidence_type": "code_and_tests",
+      "artifacts": ["agent_hub/portfolio_readiness.py", "agent_hub/maturity_model.py"],
+      "confidence": 0.9,
+      "status": "implemented"
+    },
+    {
+      "skill_id": "prompt_injection_reasoning",
+      "project_id": "llm-security-lab",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "rag_access_control",
+      "project_id": "llm-security-lab",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "secure_retrieval_design",
+      "project_id": "llm-security-lab",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "llm_security_evaluation",
+      "project_id": "llm-security-lab",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.6,
+      "status": "documented"
+    },
+    {
+      "skill_id": "log_analysis",
+      "project_id": "security-log-ai-assistant",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "mitre_mapping",
+      "project_id": "security-log-ai-assistant",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "alert_triage",
+      "project_id": "security-log-ai-assistant",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "detection_engineering",
+      "project_id": "security-log-ai-assistant",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "vulnerability_prioritization",
+      "project_id": "vulnerability-intelligence-lab",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "api_authorization_reasoning",
+      "project_id": "vulnerability-intelligence-lab",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    },
+    {
+      "skill_id": "dependency_risk_reasoning",
+      "project_id": "vulnerability-intelligence-lab",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.6,
+      "status": "documented"
+    },
+    {
+      "skill_id": "safe_verification_planning",
+      "project_id": "vulnerability-intelligence-lab",
+      "evidence_type": "metadata",
+      "artifacts": ["data/project_status_samples.json"],
+      "confidence": 0.7,
+      "status": "documented"
+    }
+  ]
+}

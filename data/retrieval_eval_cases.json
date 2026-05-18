@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {"case_id": "ret-eval-001", "query": "broken object level authorization", "expected_doc_id_prefix": "api-bola"},
+    {"case_id": "ret-eval-002", "query": "IDOR", "expected_doc_id_prefix": "api-bola"},
+    {"case_id": "ret-eval-003", "query": "Explain prompt injection", "expected_doc_id_prefix": "ai-prompt-injection"},
+    {"case_id": "ret-eval-004", "query": "instruction override on LLM", "expected_doc_id_prefix": "ai-prompt-injection"},
+    {"case_id": "ret-eval-005", "query": "What is CVSS?", "expected_doc_id_prefix": "vuln-cvss"},
+    {"case_id": "ret-eval-006", "query": "severity score for vulnerabilities", "expected_doc_id_prefix": "vuln-cvss"},
+    {"case_id": "ret-eval-007", "query": "MITRE ATT&CK basics", "expected_doc_id_prefix": "det-mitre"},
+    {"case_id": "ret-eval-008", "query": "rag access control", "expected_doc_id_prefix": "ai-"},
+    {"case_id": "ret-eval-009", "query": "responsible disclosure", "expected_doc_id_prefix": "bound-responsible"},
+    {"case_id": "ret-eval-010", "query": "input validation", "expected_doc_id_prefix": "code-input-validation"}
+  ]
+}

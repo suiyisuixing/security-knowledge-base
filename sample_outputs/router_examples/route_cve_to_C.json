@@ -1,0 +1,12 @@
+{
+  "sample_id": "route_cve_to_C",
+  "endpoint": "POST /router/route-task",
+  "request": {"query": "How should I prioritize CVEs using CVSS and EPSS for my SBOM?"},
+  "response": {
+    "query": "How should I prioritize CVEs using CVSS and EPSS for my SBOM?",
+    "project_id": "vulnerability-intelligence-lab",
+    "knowledge_domain": "vulnerability_intelligence",
+    "skill_id": "vulnerability_prioritization",
+    "explanation": "Routed query to project=vulnerability-intelligence-lab domain=vulnerability_intelligence skill=vulnerability_prioritization based on keyword rules. Target: Vulnerability Intelligence Lab."
+  }
+}

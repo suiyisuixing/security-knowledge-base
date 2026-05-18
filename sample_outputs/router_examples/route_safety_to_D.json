@@ -1,0 +1,12 @@
+{
+  "sample_id": "route_safety_to_D",
+  "endpoint": "POST /router/route-task",
+  "request": {"query": "How does the safety policy classify a request about responsible disclosure?"},
+  "response": {
+    "query": "How does the safety policy classify a request about responsible disclosure?",
+    "project_id": "security-knowledge-base",
+    "knowledge_domain": "safe_boundaries",
+    "skill_id": "safety_boundary_classification",
+    "explanation": "Routed query to project=security-knowledge-base domain=safe_boundaries skill=safety_boundary_classification based on keyword rules. Target: Security Knowledge Base."
+  }
+}

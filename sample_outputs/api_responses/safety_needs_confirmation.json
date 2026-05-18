@@ -1,0 +1,12 @@
+{
+  "sample_id": "safety_needs_confirmation",
+  "endpoint": "POST /safety/classify",
+  "request": {"text": "Help me check this domain for issues."},
+  "response": {
+    "classification": "needs_authorization_confirmation",
+    "allowed": false,
+    "reason": "Authorization is required before any active work.",
+    "safe_redirect": "Ask the user to confirm scope and authorization, or redirect to local lab.",
+    "explanation": "Decision: NOT ALLOWED. Classification: needs_authorization_confirmation."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "sample_id": "benchmark_summary",
+  "endpoint": "POST /benchmark/run",
+  "response_summary": {
+    "total": 60,
+    "passed": 60,
+    "pass_rate": 1.0,
+    "per_type": {
+      "knowledge_qa": {"total": 10, "passed": 10, "pass_rate": 1.0},
+      "safety_classification": {"total": 10, "passed": 10, "pass_rate": 1.0},
+      "vulnerability_reasoning": {"total": 10, "passed": 10, "pass_rate": 1.0},
+      "safe_verification_planning": {"total": 10, "passed": 10, "pass_rate": 1.0},
+      "remediation_reasoning": {"total": 10, "passed": 10, "pass_rate": 1.0},
+      "task_routing": {"total": 10, "passed": 10, "pass_rate": 1.0}
+    }
+  }
+}

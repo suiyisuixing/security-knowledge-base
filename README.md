@@ -2,30 +2,53 @@
 
 ![CI](https://github.com/suiyisuixing/security-knowledge-base/actions/workflows/ci.yml/badge.svg)
 
-**v3.0-rc** — A local cybersecurity knowledge base, retrieval, safety policy,
-agent memory, task routing, and benchmark platform for authorized security
-learning, defensive analysis, and safe vulnerability discovery reasoning.
+**v5.0-rc** — Model-free, local cybersecurity knowledge base + rule-based
+reasoning + hybrid retrieval + A/B/C/D rule-based agent hub for the
+portfolio.
 
 The system does not support unauthorized scanning or exploitation. It supports
 local labs, self-owned assets, and explicitly authorized reconnaissance
 planning, low-risk security check planning, and safe verification workflows.
 
+> This is a local-only, model-free, defensive, authorized-scope portfolio
+> project. It does not use LLMs, perform real scanning, or execute
+> exploitation.
+
 ---
 
-## Reviewer Quick Path
+## What changed from v3.0 → v5.0
+
+| Version | Theme | Highlights |
+|---|---|---|
+| v3.1 | Reviewer Experience | `sample_outputs/`, `/demo/*` API, Reviewer Mode UI |
+| v3.2 | Stability / Schema | `schemas/`, schema validator, integrity checker, error model, `/diagnostics/*` |
+| v4.0 | Rule-based Reasoning | `reasoning/` package, decision tree, risk scoring, evidence chain, `/reasoning/*` |
+| v4.5 | Hybrid Retrieval | `retrieval/` package (chunk + lexical + semantic-light + grounding + faithfulness + source trust), `/retrieval/*` |
+| v5.0 | Agent Hub | `agent_hub/` package, skill evidence, portfolio readiness, maturity model, orchestrator, `/agent-hub/*` |
+
+All increments are **model-free**. No LLM connector, no `llm/` directory,
+no `model_config.json`. v6.0 will introduce an *optional* local-model
+connector behind a feature flag — it is out of scope here.
+
+---
+
+## Reviewer Quick Path (v5.0 — 12 steps)
 
 1. Load knowledge domains (`GET /knowledge/domains`).
 2. Search for a security concept (`POST /knowledge/search`).
 3. Ask a knowledge-grounded question (`POST /knowledge/ask`).
-4. Classify a safety-sensitive request (`POST /safety/classify`).
-5. Review project/skill mapping (`GET /skills`, `GET /projects`).
-6. Generate a learning path (`POST /learning-path/generate`).
-7. Build an authorized workflow plan (`POST /workflow/authorized-plan`).
-8. Route a task to A/B/C/D (`POST /router/route-task`).
-9. Run the agent benchmark (`POST /benchmark/run`).
-10. Generate the agent readiness report (`POST /report/agent-readiness`).
+4. Classify an *allowed* request (`POST /safety/classify`).
+5. Classify a *needs-confirmation* request (`POST /safety/classify`).
+6. Classify a *blocked* request (`POST /safety/classify`).
+7. Generate a learning path (`POST /learning-path/generate`).
+8. Build an authorized workflow plan (`POST /workflow/authorized-plan`).
+9. Route a task to A/B/C/D (`POST /router/route-task`).
+10. Run the agent benchmark (`POST /benchmark/run`).
+11. Generate the agent readiness report (`POST /report/agent-readiness`).
+12. Review portfolio value summary (`GET /demo/portfolio-summary`).
 
-The same flow is exercised in the React frontend; each step is one panel.
+Sample outputs for every step are bundled under `sample_outputs/` and
+exposed at `GET /demo/sample-outputs`.
 
 ---
 
@@ -46,7 +69,23 @@ The same flow is exercised in the React frontend; each step is one panel.
 - Knowledge quality scoring and citation evaluation
 - Reports: knowledge coverage, safety policy, agent readiness
 - React + Vite frontend dashboard with card / table / pre-block layout
-- 360+ pytest tests, GitHub Actions CI
+- 720+ pytest tests, GitHub Actions CI
+
+## v5.0 — Model-free architecture
+
+- `reasoning/` — rule engine, decision tree, policy reasoner, risk scoring,
+  evidence builder, template renderer, workflow reasoner, explanation builder.
+- `retrieval/` — chunker, lexical scoring, light-weight semantic-style
+  expansion, hybrid scoring, source trust, citation grounding, faithfulness,
+  knowledge conflict, retrieval evaluation.
+- `agent_hub/` — project adapter, cross-project context, skill evidence
+  tracker, portfolio readiness, agent orchestrator, next-action planner,
+  cross-project report, 5-level maturity model, roadmap planner.
+- `schemas/` — JSON-schema-like definitions for knowledge metadata,
+  safety policy, skill taxonomy, project registry, benchmark tasks,
+  memory profile, skill progress, and agent readiness.
+- `sample_outputs/` — bundled JSON snapshots for every important API
+  surface so reviewers can see the shape without running the pipeline.
 
 ---
 

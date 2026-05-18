@@ -1,0 +1,22 @@
+{
+  "sample_id": "blocked_public_scan_workflow",
+  "endpoint": "POST /workflow/authorized-plan",
+  "request": {"request": "Scan this public IP for vulnerabilities."},
+  "response": {
+    "workflow_id": "authz-workflow-blocked",
+    "allowed": false,
+    "required_scope": "blocked",
+    "steps": [],
+    "blocked_actions": [
+      "No unauthorized public scanning.",
+      "No credential attacks.",
+      "No exploit weaponization.",
+      "No persistence or backdoors.",
+      "No detection evasion.",
+      "No data exfiltration.",
+      "No destructive operations.",
+      "Unauthorized scanning of third-party targets is not supported."
+    ],
+    "summary": "Request requires local lab, self-owned asset, or documented authorization."
+  }
+}

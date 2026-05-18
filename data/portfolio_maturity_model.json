@@ -1,0 +1,21 @@
+{
+  "levels": [
+    {"level": 1, "name": "Concept", "criteria": "Idea documented with goals and boundaries."},
+    {"level": 2, "name": "Documented Prototype", "criteria": "Architecture written; first prototype runs locally."},
+    {"level": 3, "name": "Tested Local Tool", "criteria": "Automated tests pass; reproducible local setup."},
+    {"level": 4, "name": "Integrated Portfolio Component", "criteria": "Linked to other portfolio projects via skills and routing."},
+    {"level": 5, "name": "Agent Hub Ready", "criteria": "Provides cross-project orchestration and readiness reporting."}
+  ],
+  "category_weights": {
+    "project_structure": 0.1,
+    "documentation": 0.1,
+    "tests": 0.15,
+    "security_boundaries": 0.15,
+    "demo_quality": 0.1,
+    "skill_coverage": 0.1,
+    "cross_project_integration": 0.1,
+    "retrieval_quality": 0.05,
+    "rule_based_reasoning": 0.05,
+    "reviewer_experience": 0.1
+  }
+}

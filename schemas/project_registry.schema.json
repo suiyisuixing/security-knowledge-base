@@ -1,0 +1,22 @@
+{
+  "$schema_name": "project_registry",
+  "type": "object",
+  "required": ["projects"],
+  "properties": {
+    "projects": {
+      "type": "list",
+      "items": {
+        "type": "object",
+        "required": ["project_id", "name", "focus", "repo", "skills", "status"],
+        "properties": {
+          "project_id": {"type": "string"},
+          "name": {"type": "string"},
+          "focus": {"type": "string"},
+          "repo": {"type": "string"},
+          "skills": {"type": "list", "items": {"type": "string"}},
+          "status": {"type": "string"}
+        }
+      }
+    }
+  }
+}

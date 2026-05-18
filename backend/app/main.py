@@ -6,6 +6,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from . import (
+    agent_hub_service,
     agent_report,
     answer_builder,
     audit,
@@ -14,16 +15,22 @@ from . import (
     citation_evaluator,
     config,
     context_builder,
+    demo_assets,
+    diagnostics,
+    error_model,
     evaluation,
+    hybrid_retrieval_service,
     knowledge_loader,
     knowledge_quality,
     learning_path,
     memory_store,
     project_registry,
+    reasoning_service,
     reporting,
     retrieval,
     safety_evaluator,
     safety_policy,
+    schema_validator,
     skill_mapper,
     task_router,
     vuln_reasoning_templates,
@@ -410,6 +417,286 @@ def evaluation_run():
 
 
 _route("POST", "/evaluation/run", "Run all evaluation scenarios")
+
+
+# ============================================================================
+# v3.1 — Demo / Reviewer Experience
+# ============================================================================
+
+
+@app.get("/demo/reviewer-path")
+def demo_reviewer_path():
+    return demo_assets.build_reviewer_path()
+
+
+_route("GET", "/demo/reviewer-path", "Reviewer Quick Path (v3.1)")
+
+
+@app.get("/demo/sample-outputs")
+def demo_sample_outputs():
+    return {"samples": demo_assets.list_demo_samples()}
+
+
+_route("GET", "/demo/sample-outputs", "List bundled sample outputs (v3.1)")
+
+
+@app.get("/demo/sample-output/{sample_id}")
+def demo_sample_output(sample_id: str):
+    sample = demo_assets.get_demo_sample(sample_id)
+    if not sample:
+        raise HTTPException(status_code=404, detail=error_model.not_found("sample"))
+    return sample
+
+
+_route("GET", "/demo/sample-output/{sample_id}", "Get a bundled sample (v3.1)")
+
+
+@app.get("/demo/portfolio-summary")
+def demo_portfolio_summary():
+    return demo_assets.build_portfolio_demo_summary()
+
+
+_route("GET", "/demo/portfolio-summary", "Portfolio value summary (v3.1)")
+
+
+# ============================================================================
+# v3.2 — Diagnostics
+# ============================================================================
+
+
+@app.get("/diagnostics/health")
+def diagnostics_health():
+    return diagnostics.get_health_diagnostics()
+
+
+_route("GET", "/diagnostics/health", "Backend health diagnostics (v3.2)")
+
+
+@app.get("/diagnostics/integrity")
+def diagnostics_integrity():
+    from . import integrity_checker
+    return integrity_checker.build_integrity_report()
+
+
+_route("GET", "/diagnostics/integrity", "Project integrity report (v3.2)")
+
+
+@app.get("/diagnostics/schema-validation")
+def diagnostics_schema_validation():
+    return schema_validator.summarize_schema_validation()
+
+
+_route("GET", "/diagnostics/schema-validation", "Schema validation summary (v3.2)")
+
+
+@app.get("/diagnostics/project-status")
+def diagnostics_project_status():
+    return diagnostics.build_diagnostics_report()
+
+
+_route("GET", "/diagnostics/project-status", "Full diagnostics report (v3.2)")
+
+
+# ============================================================================
+# v4.0 — Reasoning
+# ============================================================================
+
+
+@app.post("/reasoning/rule-match")
+def reasoning_rule_match(payload: dict):
+    return reasoning_service.run_rule_based_reasoning(payload.get("query", ""))
+
+
+_route("POST", "/reasoning/rule-match", "Match rules for a query (v4.0)")
+
+
+@app.post("/reasoning/decision-path")
+def reasoning_decision_path(payload: dict):
+    return reasoning_service.build_decision_path(payload.get("query", ""))
+
+
+_route("POST", "/reasoning/decision-path", "Decision tree path (v4.0)")
+
+
+@app.post("/reasoning/risk-score")
+def reasoning_risk_score(payload: dict):
+    from reasoning import risk_scoring
+    return risk_scoring.build_risk_breakdown(payload.get("query", ""))
+
+
+_route("POST", "/reasoning/risk-score", "Risk score for a query (v4.0)")
+
+
+@app.post("/reasoning/evidence-chain")
+def reasoning_evidence_chain(payload: dict):
+    return reasoning_service.build_evidence_based_report(payload.get("query", ""))
+
+
+_route("POST", "/reasoning/evidence-chain", "Evidence chain for a query (v4.0)")
+
+
+@app.post("/reasoning/reasoned-answer")
+def reasoning_reasoned_answer(payload: dict):
+    return reasoning_service.build_reasoned_answer(payload.get("query", ""))
+
+
+_route("POST", "/reasoning/reasoned-answer", "Rule-based grounded answer (v4.0)")
+
+
+@app.post("/reasoning/policy-explanation")
+def reasoning_policy_explanation(payload: dict):
+    return reasoning_service.build_policy_reasoning(payload.get("query", ""))
+
+
+_route("POST", "/reasoning/policy-explanation", "Policy explanation (v4.0)")
+
+
+# ============================================================================
+# v4.5 — Hybrid retrieval
+# ============================================================================
+
+
+@app.post("/retrieval/hybrid-search")
+def retrieval_hybrid_search(payload: dict):
+    return {"results": hybrid_retrieval_service.search_hybrid_knowledge(
+        payload.get("query", ""),
+        payload.get("domain"),
+        int(payload.get("top_k", 8)),
+    )}
+
+
+_route("POST", "/retrieval/hybrid-search", "Hybrid retrieval search (v4.5)")
+
+
+@app.post("/retrieval/compare")
+def retrieval_compare(payload: dict):
+    return hybrid_retrieval_service.compare_retrieval_modes(payload.get("query", ""))
+
+
+_route("POST", "/retrieval/compare", "Compare legacy vs hybrid retrieval (v4.5)")
+
+
+@app.post("/retrieval/grounding-report")
+def retrieval_grounding_report(payload: dict):
+    answer = payload.get("answer", "")
+    query = payload.get("query", "")
+    return hybrid_retrieval_service.evaluate_answer_grounding(answer, query)
+
+
+_route("POST", "/retrieval/grounding-report", "Citation grounding report (v4.5)")
+
+
+@app.get("/retrieval/evaluation")
+def retrieval_evaluation():
+    from retrieval import retrieval_eval
+    return retrieval_eval.build_retrieval_eval_report()
+
+
+_route("GET", "/retrieval/evaluation", "Retrieval evaluation (v4.5)")
+
+
+@app.get("/retrieval/conflicts")
+def retrieval_conflicts():
+    from retrieval import knowledge_conflict
+    return knowledge_conflict.build_conflict_report()
+
+
+_route("GET", "/retrieval/conflicts", "Knowledge conflict report (v4.5)")
+
+
+@app.get("/retrieval/source-trust")
+def retrieval_source_trust():
+    from retrieval import source_trust
+    docs = knowledge_loader.get_index()["documents"]
+    return source_trust.build_source_trust_report(docs)
+
+
+_route("GET", "/retrieval/source-trust", "Source trust report (v4.5)")
+
+
+# ============================================================================
+# v5.0 — Agent Hub
+# ============================================================================
+
+
+@app.get("/agent-hub/status")
+def agent_hub_status():
+    return agent_hub_service.get_agent_hub_status()
+
+
+_route("GET", "/agent-hub/status", "Agent hub status (v5.0)")
+
+
+@app.post("/agent-hub/context")
+def agent_hub_context(payload: dict):
+    return agent_hub_service.build_agent_hub_context(payload.get("query", ""))
+
+
+_route("POST", "/agent-hub/context", "Build cross-project context (v5.0)")
+
+
+@app.post("/agent-hub/orchestrate")
+def agent_hub_orchestrate(payload: dict):
+    return agent_hub_service.run_agent_hub_orchestration(payload.get("query", ""))
+
+
+_route("POST", "/agent-hub/orchestrate", "Rule-based orchestration (v5.0)")
+
+
+@app.get("/agent-hub/skill-evidence")
+def agent_hub_skill_evidence():
+    return agent_hub_service.get_skill_evidence_report()
+
+
+_route("GET", "/agent-hub/skill-evidence", "Skill evidence report (v5.0)")
+
+
+@app.get("/agent-hub/missing-evidence")
+def agent_hub_missing_evidence():
+    return agent_hub_service.get_missing_evidence_report()
+
+
+_route("GET", "/agent-hub/missing-evidence", "Missing evidence report (v5.0)")
+
+
+@app.get("/agent-hub/portfolio-readiness")
+def agent_hub_portfolio_readiness():
+    return agent_hub_service.get_portfolio_readiness()
+
+
+_route("GET", "/agent-hub/portfolio-readiness", "Portfolio readiness report (v5.0)")
+
+
+@app.get("/agent-hub/cross-project-report")
+def agent_hub_cross_project_report():
+    return agent_hub_service.get_cross_project_report()
+
+
+_route("GET", "/agent-hub/cross-project-report", "Cross-project report (v5.0)")
+
+
+@app.get("/agent-hub/maturity")
+def agent_hub_maturity():
+    return agent_hub_service.get_maturity_report()
+
+
+_route("GET", "/agent-hub/maturity", "Maturity report (v5.0)")
+
+
+@app.get("/agent-hub/next-actions")
+def agent_hub_next_actions():
+    return agent_hub_service.get_next_action_plan()
+
+
+_route("GET", "/agent-hub/next-actions", "Next action plan (v5.0)")
+
+
+@app.get("/agent-hub/v5-release-report")
+def agent_hub_v5_release_report():
+    return agent_hub_service.get_v5_release_report()
+
+
+_route("GET", "/agent-hub/v5-release-report", "v5 release report (v5.0)")
 
 
 @app.get("/api/surface")

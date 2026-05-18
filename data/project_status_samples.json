@@ -1,0 +1,62 @@
+{
+  "samples": [
+    {
+      "project_id": "llm-security-lab",
+      "name": "LLM Security Lab",
+      "focus": "AI / RAG Security Evaluation",
+      "capabilities": ["rag_evaluation", "prompt_injection_test_harness", "rag_acl_review"],
+      "known_artifacts": [
+        "backend/app/rag_pipeline.py",
+        "data/rag_test_corpus.json",
+        "reports/RAG_SECURITY_REPORT.md"
+      ],
+      "skill_coverage": ["prompt_injection_reasoning", "rag_access_control", "secure_retrieval_design", "llm_security_evaluation"],
+      "maturity_level": 4,
+      "status": "v3.0-rc"
+    },
+    {
+      "project_id": "security-log-ai-assistant",
+      "name": "Security Log AI Assistant",
+      "focus": "Detection Engineering / SOC Workflow",
+      "capabilities": ["log_triage", "mitre_mapping", "alert_correlation"],
+      "known_artifacts": [
+        "backend/app/triage.py",
+        "data/sigma_rules.json",
+        "docs/playbook.md"
+      ],
+      "skill_coverage": ["log_analysis", "mitre_mapping", "alert_triage", "detection_engineering"],
+      "maturity_level": 4,
+      "status": "v3.0-rc"
+    },
+    {
+      "project_id": "vulnerability-intelligence-lab",
+      "name": "Vulnerability Intelligence Lab",
+      "focus": "Vulnerability Intelligence / AI Security Skill Dataset",
+      "capabilities": ["cve_prioritization", "api_authorization_review", "dependency_risk_review"],
+      "known_artifacts": [
+        "backend/app/cve_scoring.py",
+        "data/skill_dataset.json",
+        "reports/VULN_REPORT.md"
+      ],
+      "skill_coverage": ["vulnerability_prioritization", "api_authorization_reasoning", "dependency_risk_reasoning", "safe_verification_planning"],
+      "maturity_level": 4,
+      "status": "v3.0-rc"
+    },
+    {
+      "project_id": "security-knowledge-base",
+      "name": "Security Knowledge Base",
+      "focus": "Knowledge Base / Safety Policy / Memory / Routing / Agent Hub",
+      "capabilities": ["knowledge_retrieval", "hybrid_retrieval", "rule_based_reasoning", "safety_policy", "task_routing", "agent_memory", "portfolio_readiness"],
+      "known_artifacts": [
+        "backend/app/safety_policy.py",
+        "backend/app/main.py",
+        "reasoning/rule_engine.py",
+        "retrieval/hybrid.py",
+        "agent_hub/agent_orchestrator.py"
+      ],
+      "skill_coverage": ["safety_boundary_classification", "task_routing", "agent_memory", "hybrid_retrieval", "rule_based_reasoning", "portfolio_readiness"],
+      "maturity_level": 5,
+      "status": "v5.0-rc"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "$schema_name": "agent_readiness",
+  "type": "object",
+  "required": ["version", "categories", "overall"],
+  "properties": {
+    "version": {"type": "string"},
+    "categories": {"type": "dict"},
+    "overall": {"type": "number"}
+  }
+}

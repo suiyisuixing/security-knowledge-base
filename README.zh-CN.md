@@ -2,28 +2,45 @@
 
 ![CI](https://github.com/suiyisuixing/security-knowledge-base/actions/workflows/ci.yml/badge.svg)
 
-**v3.0-rc** —— 一个本地网络安全知识库、检索、安全策略、智能体记忆、任务路由和评估平台，
-用于授权安全学习、防御分析和安全漏洞发现推理。
+**v5.0-rc** —— 无大模型、本地化的安全知识库 + 规则推理 + 混合检索 +
+A/B/C/D 规则化智能体中心。
 
 本系统不支持未授权扫描或漏洞利用。它支持本地实验、自有资产和明确授权范围内的信息收集规划、
 低风险安全检查规划与安全验证流程。
 
+> 这是一个本地、无大模型、防御性、授权范围内的作品集项目，不使用大模型、
+> 不执行真实扫描、不执行漏洞利用。
+
 ---
 
-## 审阅者快速路径
+## v3.0 → v5.0 升级路线
+
+| 版本 | 主题 | 重点 |
+|---|---|---|
+| v3.1 | Reviewer Experience | `sample_outputs/`、`/demo/*`、Reviewer Mode |
+| v3.2 | 稳定性 / Schema | `schemas/`、schema 校验、完整性检查、错误模型、`/diagnostics/*` |
+| v4.0 | 规则推理 | `reasoning/` 包、决策树、风险评分、证据链、`/reasoning/*` |
+| v4.5 | 混合检索 | `retrieval/` 包（chunk + 词法 + 轻量语义 + grounding + 可信度），`/retrieval/*` |
+| v5.0 | Agent Hub | `agent_hub/` 包、技能证据、组合就绪度、成熟度模型、编排器、`/agent-hub/*` |
+
+所有增量都是**无大模型**的。未来 v6.0 将引入可选的本地模型连接器（feature flag，默认关闭），不在本次范围。
+
+## 审阅者快速路径（v5.0 — 12 步）
 
 1. 加载知识领域 (`GET /knowledge/domains`)
 2. 搜索一个安全概念 (`POST /knowledge/search`)
-3. 提出一个基于知识的问题 (`POST /knowledge/ask`)
-4. 对一个安全敏感请求进行分类 (`POST /safety/classify`)
-5. 查看项目/技能映射 (`GET /skills`, `GET /projects`)
-6. 生成学习路径 (`POST /learning-path/generate`)
-7. 构建授权工作流计划 (`POST /workflow/authorized-plan`)
-8. 把任务路由到 A/B/C/D (`POST /router/route-task`)
-9. 运行智能体评估 (`POST /benchmark/run`)
-10. 生成智能体就绪报告 (`POST /report/agent-readiness`)
+3. 提出基于知识的问题 (`POST /knowledge/ask`)
+4. 分类 *allowed* 请求 (`POST /safety/classify`)
+5. 分类 *needs-confirmation* 请求 (`POST /safety/classify`)
+6. 分类 *blocked* 请求 (`POST /safety/classify`)
+7. 生成学习路径 (`POST /learning-path/generate`)
+8. 构建授权工作流计划 (`POST /workflow/authorized-plan`)
+9. 把任务路由到 A/B/C/D (`POST /router/route-task`)
+10. 运行评估 (`POST /benchmark/run`)
+11. 生成 agent readiness 报告 (`POST /report/agent-readiness`)
+12. 查看作品集价值摘要 (`GET /demo/portfolio-summary`)
 
-前端面板对每一步都有对应的卡片。
+每一步的样例输出都存放在 `sample_outputs/` 并通过 `/demo/sample-outputs` 提供。
 
 ---
 

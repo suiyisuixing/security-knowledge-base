@@ -1,0 +1,24 @@
+{
+  "sample_id": "knowledge_search_bola",
+  "endpoint": "POST /knowledge/search",
+  "request": {"query": "What is BOLA?", "domain": "api_security", "top_k": 3},
+  "response": {
+    "results": [
+      {
+        "doc_id": "api-bola-001",
+        "title": "Broken Object Level Authorization",
+        "domain": "api_security",
+        "score": 7.42,
+        "snippet": "BOLA (also called IDOR) is a class of API authorization flaw where a server fails to verify that the caller may access a specific object."
+      },
+      {
+        "doc_id": "api-bfla-001",
+        "title": "Broken Function Level Authorization",
+        "domain": "api_security",
+        "score": 3.18,
+        "snippet": "BFLA occurs when a server exposes function-level capabilities to callers that should not be authorized."
+      }
+    ]
+  },
+  "safety_boundary": "Local knowledge only. The system does not scan external systems."
+}

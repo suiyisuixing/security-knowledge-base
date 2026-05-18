@@ -66,3 +66,12 @@ th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #e5e7eb; }
 .muted { color: #6b7280; font-size: 12px; }
 ol.path-steps { padding-left: 18px; }
 .disclosure { background: #eff6ff; border-color: #bfdbfe; }
+.banner { padding: 10px 14px; border-radius: 8px; margin: 8px 0; font-size: 13px; }
+.banner.blue { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; }
+.banner.orange { background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; }
+.banner.red { background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.chip { padding: 4px 10px; border-radius: 999px; background: #f3f4f6; border: 1px solid #d1d5db; color: #1f2937; font-size: 12px; cursor: pointer; }
+.chip:hover { background: #e5e7eb; }
+.reviewer { background: #f0fdf4; border-color: #bbf7d0; }
+.hub { background: #fef9c3; border-color: #fde68a; }

@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {"task_id": "v5-route-001", "type": "agent_routing", "input": "Help me evaluate prompt injection in my RAG pipeline.", "expected_project": "llm-security-lab"},
+    {"task_id": "v5-route-002", "type": "agent_routing", "input": "Map my SIEM alerts to MITRE ATT&CK techniques.", "expected_project": "security-log-ai-assistant"},
+    {"task_id": "v5-route-003", "type": "agent_routing", "input": "Prioritize CVEs from my SBOM using CVSS and EPSS.", "expected_project": "vulnerability-intelligence-lab"},
+    {"task_id": "v5-route-004", "type": "agent_routing", "input": "Explain how the safety policy classifies a public scan request.", "expected_project": "security-knowledge-base"},
+    {"task_id": "v5-evidence-001", "type": "skill_evidence", "input": "safety_boundary_classification", "expected_project": "security-knowledge-base"},
+    {"task_id": "v5-evidence-002", "type": "skill_evidence", "input": "prompt_injection_reasoning", "expected_project": "llm-security-lab"},
+    {"task_id": "v5-readiness-001", "type": "portfolio_readiness", "expected_min_overall": 0.6},
+    {"task_id": "v5-orchestrate-001", "type": "orchestration_mode", "input": "Explain prompt injection", "expected_mode": "rule_based_grounded_answer"},
+    {"task_id": "v5-orchestrate-002", "type": "orchestration_mode", "input": "Scan this public IP for vulnerabilities.", "expected_mode": "safety_classification"},
+    {"task_id": "v5-orchestrate-003", "type": "orchestration_mode", "input": "Plan a safe review in my local lab.", "expected_mode": "authorized_workflow"}
+  ]
+}

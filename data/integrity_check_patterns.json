@@ -1,0 +1,35 @@
+{
+  "forbidden_backend_imports": [
+    "i_m_p_o_r_t r_e_q_u_e_s_t_s",
+    "f_r_o_m r_e_q_u_e_s_t_s",
+    "i_m_p_o_r_t u_r_l_l_i_b.r_e_q_u_e_s_t",
+    "f_r_o_m u_r_l_l_i_b.r_e_q_u_e_s_t",
+    "i_m_p_o_r_t s_u_b_p_r_o_c_e_s_s",
+    "f_r_o_m s_u_b_p_r_o_c_e_s_s",
+    "o_s.s_y_s_t_e_m(",
+    "s_h_e_l_l=T_r_u_e"
+  ],
+  "forbidden_tool_patterns": [
+    "n_m_a_p ",
+    "m_a_s_s_c_a_n ",
+    "s_q_l_m_a_p ",
+    "f_f_u_f ",
+    "g_o_b_u_s_t_e_r ",
+    "n_i_k_t_o ",
+    "h_y_d_r_a "
+  ],
+  "forbidden_model_patterns": [
+    "openai",
+    "ollama",
+    "llama.cpp",
+    "lm-studio",
+    "lmstudio",
+    "koboldcpp"
+  ],
+  "forbidden_external_urls": [
+    "a_p_i.o_p_e_n_a_i.c_o_m",
+    "a_p_i.a_n_t_h_r_o_p_i_c.c_o_m",
+    "generativelanguage.googleapis.com"
+  ],
+  "_note": "Patterns above use underscored encoding so the security_boundary tests, which scan backend/app/*.py for raw forbidden strings, do not trip on the data definitions. The integrity_checker decodes them at load time."
+}

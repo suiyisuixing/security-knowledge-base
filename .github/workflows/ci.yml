@@ -20,9 +20,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
       - name: Compile
-        run: python -m compileall backend/app tests tools
+        run: python -m compileall backend/app tests tools reasoning retrieval agent_hub
       - name: Pytest
         run: python -m pytest -q
+      - name: Integrity report
+        run: |
+          python -c "import sys; sys.path.insert(0, 'backend'); sys.path.insert(0, '.'); from app import integrity_checker, schema_validator; r = integrity_checker.build_integrity_report(); s = schema_validator.summarize_schema_validation(); assert r['ok'], r['checks']; assert s['all_valid'], s; print('integrity + schema OK')"
 
   frontend-build:
     runs-on: ubuntu-latest
