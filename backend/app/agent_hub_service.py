@@ -69,7 +69,7 @@ def get_maturity_report() -> dict[str, Any]:
 def get_v5_release_report() -> dict[str, Any]:
     return {
         "roadmap": roadmap_planner.build_v5_roadmap(),
-        "release_checklist": roadmap_planner.build_release_checklist("v5.0-rc"),
+        "release_checklist": roadmap_planner.build_release_checklist("v5.0"),
         "v5_to_v6": roadmap_planner.build_v5_to_v6_roadmap(),
-        "notes": roadmap_planner.build_github_release_notes("v5.0-rc"),
+        "notes": roadmap_planner.build_github_release_notes("v5.0"),
     }

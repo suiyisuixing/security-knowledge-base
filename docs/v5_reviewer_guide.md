@@ -64,4 +64,4 @@ and v5→v6 plan.
 
 ## 9. (Optional) Run tests
 
-`pytest` — 720+ tests, all pass, no skips, no xfails.
+`pytest` — 721 tests, all pass, no skips, no xfails.

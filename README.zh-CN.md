@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/suiyisuixing/security-knowledge-base/actions/workflows/ci.yml/badge.svg)
 
-**v5.0-rc** —— 无大模型、本地化的安全知识库 + 规则推理 + 混合检索 +
+无大模型、本地化的安全知识库 + 规则推理 + 混合检索 +
 A/B/C/D 规则化智能体中心。
 
 本系统不支持未授权扫描或漏洞利用。它支持本地实验、自有资产和明确授权范围内的信息收集规划、
@@ -13,19 +13,21 @@ A/B/C/D 规则化智能体中心。
 
 ---
 
-## v3.0 → v5.0 升级路线
+## 组成模块
 
-| 版本 | 主题 | 重点 |
-|---|---|---|
-| v3.1 | Reviewer Experience | `sample_outputs/`、`/demo/*`、Reviewer Mode |
-| v3.2 | 稳定性 / Schema | `schemas/`、schema 校验、完整性检查、错误模型、`/diagnostics/*` |
-| v4.0 | 规则推理 | `reasoning/` 包、决策树、风险评分、证据链、`/reasoning/*` |
-| v4.5 | 混合检索 | `retrieval/` 包（chunk + 词法 + 轻量语义 + grounding + 可信度），`/retrieval/*` |
-| v5.0 | Agent Hub | `agent_hub/` 包、技能证据、组合就绪度、成熟度模型、编排器、`/agent-hub/*` |
+系统由若干可独立检查的子系统组成：
 
-所有增量都是**无大模型**的。未来 v6.0 将引入可选的本地模型连接器（feature flag，默认关闭），不在本次范围。
+| 模块 | 作用 |
+|---|---|
+| Reviewer Experience | `sample_outputs/`、`/demo/*`、Reviewer Mode |
+| 稳定性 / Schema | `schemas/`、schema 校验、完整性检查、错误模型、`/diagnostics/*` |
+| 规则推理 | `reasoning/` 包、决策树、风险评分、证据链、`/reasoning/*` |
+| 混合检索 | `retrieval/` 包（chunk + 词法 + 轻量语义 + grounding + 可信度），`/retrieval/*` |
+| Agent Hub | `agent_hub/` 包、技能证据、组合就绪度、成熟度模型、编排器、`/agent-hub/*` |
 
-## 审阅者快速路径（v5.0 — 12 步）
+所有模块都是**无大模型**的。可选的本地模型连接器是一个可能的未来方向，本次不在范围内。
+
+## 审阅者快速路径（12 步）
 
 1. 加载知识领域 (`GET /knowledge/domains`)
 2. 搜索一个安全概念 (`POST /knowledge/search`)
@@ -46,7 +48,7 @@ A/B/C/D 规则化智能体中心。
 
 ## 特性
 
-- 6 大领域共 32+ 篇本地 Markdown 知识文档
+- 6 大领域共 32 篇本地 Markdown 知识文档
 - 每篇带 YAML front matter 与 `safe_use` / `forbidden_use`
 - 类 BM25 的 TF-IDF 检索（不依赖外部库与向量库）
 - 带引用和安全说明的知识 grounded 应答构建器
@@ -57,11 +59,11 @@ A/B/C/D 规则化智能体中心。
 - 授权工作流规划器（本地实验、自有资产、授权范围）
 - A/B/C/D 任务路由器
 - 8 个漏洞推理模板
-- 6 类共 60+ 个 benchmark 任务
+- 6 类共 60 个 benchmark 任务
 - 知识质量评分与引用质量评估
 - 三类报告：知识覆盖、安全策略、智能体就绪
 - React + Vite 前端 dashboard（card / table / pre 块）
-- 360+ pytest 测试，GitHub Actions CI
+- 721 个 pytest 测试，GitHub Actions CI
 
 ---
 
@@ -80,12 +82,12 @@ A/B/C/D 规则化智能体中心。
 
 ## 架构
 
-- `backend/app/` —— FastAPI 服务（23 个模块）
+- `backend/app/` —— FastAPI 服务（32 个模块）
 - `knowledge/` —— 带 YAML 元数据的本地 Markdown 知识库
 - `data/` —— 安全策略、技能 taxonomy、项目注册表、benchmark、模板
 - `memory/` —— 智能体记忆（不含任何敏感数据）
 - `frontend/` —— React + Vite dashboard
-- `tests/` —— pytest 套件（25 文件，360+ 测试）
+- `tests/` —— pytest 套件（69 文件，721 测试）
 - `docs/` —— 架构、威胁模型、安全策略、审阅者指南等
 - `reports/` —— 安全报告
 - `tools/` —— 本地开发检查脚本
@@ -95,30 +97,33 @@ A/B/C/D 规则化智能体中心。
 
 ## 快速开始
 
+> 下面的命令用 `%REPO%` 表示你克隆到的目录。每个终端设置一次：在仓库根目录执行
+> `set REPO=%CD%`（PowerShell：`$env:REPO=$PWD`）。
+
 ### 创建虚拟环境
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base
+cd /d %REPO%
 py -3.11 -m venv .venv
 ```
 
 ### 安装后端依赖
 
 ```cmd
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+%REPO%\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
 ```
 
 ### 启动后端
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base\backend
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+cd /d %REPO%\backend
+%REPO%\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
 ```
 
 ### 安装并启动前端
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base\frontend
+cd /d %REPO%\frontend
 npm install --registry=https://registry.npmmirror.com
 npm run dev
 ```
@@ -126,22 +131,22 @@ npm run dev
 ### 运行测试
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe -m pytest
+cd /d %REPO%
+%REPO%\.venv\Scripts\python.exe -m pytest
 ```
 
 ### 构建前端
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base\frontend
+cd /d %REPO%\frontend
 npm run build
 ```
 
 ### 本地一键检查
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe tools\run_checks.py
+cd /d %REPO%
+%REPO%\.venv\Scripts\python.exe tools\run_checks.py
 ```
 
 ---

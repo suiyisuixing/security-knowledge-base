@@ -20,7 +20,7 @@
    BM25 thanks to chunking, synonym expansion, source trust, and
    faithfulness scoring.
 8. **Engineering hygiene** — JSON schemas, integrity checks, diagnostics
-   reports, 720+ tests with no skips.
+   reports, 721 tests with no skips.
 
 ## Why model-free now
 

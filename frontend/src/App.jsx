@@ -626,7 +626,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>Security Knowledge Base &amp; Agent Memory Lab · v5.0-rc</h1>
+        <h1>Security Knowledge Base &amp; Agent Memory Lab</h1>
         <p>Local cybersecurity knowledge base + rule-based reasoning + hybrid retrieval + agent hub for the A/B/C/D portfolio.</p>
       </header>
       <LocalOnlyBanner />

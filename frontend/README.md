@@ -2,10 +2,14 @@
 
 React + Vite single-page frontend for the v3.0-rc release.
 
+> Commands below use `%REPO%` for the directory you cloned into. Set it once
+> per shell: `set REPO=%CD%` from the repository root (PowerShell:
+> `$env:REPO=$PWD`).
+
 ## Development
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base\frontend
+cd /d %REPO%\frontend
 npm install --registry=https://registry.npmmirror.com
 npm run dev
 ```

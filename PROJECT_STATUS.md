@@ -1,44 +1,44 @@
 # Project Status
 
-- Version: **v5.0-rc**
+- Status: feature-complete, model-free (local educational project)
 - Date: 2026-05-18
 - Author: suiyisuixing
-- Status: feature-complete release candidate (model-free)
 
-## Completed
+This project was built as an AI-assisted learning project, with author-directed
+design, validation, and review. The component groups below describe *what was
+built* — they are scope milestones, not separate public releases.
 
-- v3.0 — Backend (23 modules), FastAPI surface, 32+ Markdown docs, 60-task
-  benchmark, React/Vite frontend.
-- v3.1 — Sample outputs (`sample_outputs/`), `demo_assets.py`,
-  Reviewer Mode UI, portfolio summary, `/demo/*` endpoints.
-- v3.2 — JSON schemas (`schemas/`), `schema_validator.py`,
-  `integrity_checker.py`, `error_model.py`, `diagnostics.py`,
-  `/diagnostics/*` endpoints.
-- v4.0 — `reasoning/` package (rule engine, decision tree, policy
-  reasoner, risk scoring, evidence builder, template renderer, workflow
-  reasoner, explanation builder), `/reasoning/*` endpoints.
-- v4.5 — `retrieval/` package (chunker, lexical, semantic-light, hybrid,
-  source trust, citation grounding, faithfulness, knowledge conflict,
-  retrieval evaluation), `/retrieval/*` endpoints.
-- v5.0 — `agent_hub/` package (project adapter, cross-project context,
-  skill evidence, portfolio readiness, agent orchestrator, next-action
-  planner, cross-project report, maturity model, roadmap planner),
-  `/agent-hub/*` endpoints.
+## What is built
 
-## Numbers
+- **Core** — FastAPI backend (32 modules), local Markdown knowledge base,
+  React/Vite frontend, and a 60-task benchmark.
+- **Reviewer experience** — bundled `sample_outputs/`, `demo_assets.py`,
+  Reviewer Mode UI, and `/demo/*` endpoints.
+- **Stability / schema** — JSON schemas (`schemas/`), `schema_validator.py`,
+  `integrity_checker.py`, `error_model.py`, and `/diagnostics/*` endpoints.
+- **Rule-based reasoning** — `reasoning/` package (rule engine, decision tree,
+  policy reasoner, risk scoring, evidence and explanation builders) and
+  `/reasoning/*` endpoints.
+- **Hybrid retrieval** — `retrieval/` package (chunker, lexical scoring,
+  light-semantic expansion, hybrid scoring, source trust, citation grounding,
+  faithfulness, retrieval evaluation) and `/retrieval/*` endpoints.
+- **Agent hub** — `agent_hub/` package (project adapter, cross-project context,
+  skill evidence, portfolio readiness, orchestrator, next-action planner,
+  5-level maturity model, roadmap planner) and `/agent-hub/*` endpoints.
+
+## Numbers (re-verified 2026-07-15)
 
 - 68 HTTP endpoints
-- 720+ pytest tests, all passing
-- 6 knowledge domains, 32+ documents
-- 60 benchmark tasks (10 per category, 6 categories)
-- 16+ skills mapped across A/B/C/D
+- 721 pytest tests, all passing, across 69 test files
+- 32 local Markdown knowledge documents
+- 60 benchmark tasks across 6 task types
 - 8 JSON-schema-like schemas
-- 15+ bundled sample outputs
+- 16 bundled sample outputs
 
 ## Known limitations
 
 - Local-only; no production deployment intended.
-- Hybrid retrieval is rule-based (chunker + lexical + synonym map +
-  trust). No embeddings, no vector DB.
-- No model integration. v6.0 may add an optional local model behind a
-  feature flag.
+- Hybrid retrieval is rule-based (chunker + lexical + synonym map + source
+  trust). No embeddings, no vector database.
+- No model integration; an optional local model behind a feature flag is a
+  possible future direction.

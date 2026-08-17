@@ -3,12 +3,12 @@
 ## Layout
 
 ```
-backend/app/        FastAPI service (23 modules)
-knowledge/          Markdown knowledge base (6 domains, 32+ docs)
+backend/app/        FastAPI service (32 modules)
+knowledge/          Markdown knowledge base (6 domains, 32 docs)
 data/               Policy / taxonomy / registry / benchmark / templates JSON
 memory/             Agent memory JSON
 frontend/           React + Vite dashboard
-tests/              pytest suite (25 files)
+tests/              pytest suite (69 files)
 docs/               Architecture, threat model, safety policy, etc.
 reports/            SECURITY_REPORT.md
 tools/              Local-development check runner

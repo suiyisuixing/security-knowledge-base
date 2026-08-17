@@ -56,7 +56,7 @@
       ],
       "skill_coverage": ["safety_boundary_classification", "task_routing", "agent_memory", "hybrid_retrieval", "rule_based_reasoning", "portfolio_readiness"],
       "maturity_level": 5,
-      "status": "v5.0-rc"
+      "status": "v5.0"
     }
   ]
 }

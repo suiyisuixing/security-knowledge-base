@@ -1,6 +1,6 @@
 # Security Report — Security Knowledge Base & Agent Memory Lab
 
-**Version: v5.0-rc · model-free · local-only · defensive**
+**model-free · local-only · defensive**
 
 ## What this project does
 
@@ -49,7 +49,7 @@ assessment processes.
 
 ## Benchmark model
 
-60+ tasks across six categories: knowledge QA, safety classification,
+60 tasks across six categories: knowledge QA, safety classification,
 vulnerability reasoning, safe verification planning, remediation reasoning,
 task routing. Each task has a deterministic expected output and a small rubric.
 

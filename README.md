@@ -2,9 +2,9 @@
 
 ![CI](https://github.com/suiyisuixing/security-knowledge-base/actions/workflows/ci.yml/badge.svg)
 
-**v5.0-rc** — Model-free, local cybersecurity knowledge base + rule-based
-reasoning + hybrid retrieval + A/B/C/D rule-based agent hub for the
-portfolio.
+A model-free, local cybersecurity knowledge base with rule-based
+reasoning, hybrid retrieval, and a rule-based agent hub — built as a
+learning project.
 
 The system does not support unauthorized scanning or exploitation. It supports
 local labs, self-owned assets, and explicitly authorized reconnaissance
@@ -16,23 +16,25 @@ planning, low-risk security check planning, and safe verification workflows.
 
 ---
 
-## What changed from v3.0 → v5.0
+## How the project is organized
 
-| Version | Theme | Highlights |
-|---|---|---|
-| v3.1 | Reviewer Experience | `sample_outputs/`, `/demo/*` API, Reviewer Mode UI |
-| v3.2 | Stability / Schema | `schemas/`, schema validator, integrity checker, error model, `/diagnostics/*` |
-| v4.0 | Rule-based Reasoning | `reasoning/` package, decision tree, risk scoring, evidence chain, `/reasoning/*` |
-| v4.5 | Hybrid Retrieval | `retrieval/` package (chunk + lexical + semantic-light + grounding + faithfulness + source trust), `/retrieval/*` |
-| v5.0 | Agent Hub | `agent_hub/` package, skill evidence, portfolio readiness, maturity model, orchestrator, `/agent-hub/*` |
+The system grew in stages, each adding one inspectable subsystem:
 
-All increments are **model-free**. No LLM connector, no `llm/` directory,
-no `model_config.json`. v6.0 will introduce an *optional* local-model
-connector behind a feature flag — it is out of scope here.
+| Component | What it does |
+|---|---|
+| Reviewer experience | `sample_outputs/`, `/demo/*` API, Reviewer Mode UI |
+| Stability / schema | `schemas/`, schema validator, integrity checker, error model, `/diagnostics/*` |
+| Rule-based reasoning | `reasoning/` package, decision tree, risk scoring, evidence chain, `/reasoning/*` |
+| Hybrid retrieval | `retrieval/` package (chunk + lexical + semantic-light + grounding + faithfulness + source trust), `/retrieval/*` |
+| Agent hub | `agent_hub/` package, skill evidence, portfolio readiness, maturity model, orchestrator, `/agent-hub/*` |
+
+Every component is **model-free**: no LLM connector, no `llm/` directory,
+no `model_config.json`. An optional local-model connector is a possible
+future direction, deliberately out of scope here.
 
 ---
 
-## Reviewer Quick Path (v5.0 — 12 steps)
+## Reviewer Quick Path (12 steps)
 
 1. Load knowledge domains (`GET /knowledge/domains`).
 2. Search for a security concept (`POST /knowledge/search`).
@@ -54,7 +56,7 @@ exposed at `GET /demo/sample-outputs`.
 
 ## Features
 
-- 32+ local Markdown knowledge documents across 6 domains
+- 32 local Markdown knowledge documents across 6 domains
 - YAML front matter with `safe_use` / `forbidden_use` per document
 - BM25-like TF-IDF retrieval (no external libraries, no vector DB)
 - Knowledge-grounded answer builder with citations and safety notes
@@ -65,13 +67,13 @@ exposed at `GET /demo/sample-outputs`.
 - Authorized workflow planner (local lab, self-owned asset, authorized scope)
 - Task router across the four portfolio projects
 - Vulnerability reasoning templates (BOLA, dependency, RAG, log, recon, plan)
-- 60+ benchmark tasks across six categories
+- 60 benchmark tasks across six categories
 - Knowledge quality scoring and citation evaluation
 - Reports: knowledge coverage, safety policy, agent readiness
 - React + Vite frontend dashboard with card / table / pre-block layout
-- 720+ pytest tests, GitHub Actions CI
+- 721 pytest tests, GitHub Actions CI
 
-## v5.0 — Model-free architecture
+## Model-free architecture
 
 - `reasoning/` — rule engine, decision tree, policy reasoner, risk scoring,
   evidence builder, template renderer, workflow reasoner, explanation builder.
@@ -105,12 +107,12 @@ routing layer for the rest of the portfolio.
 
 ## Architecture
 
-- `backend/app/` — FastAPI service (23 modules)
+- `backend/app/` — FastAPI service (32 modules)
 - `knowledge/` — Local Markdown knowledge base with YAML metadata
 - `data/` — Safety policy, skill taxonomy, project registry, benchmark, templates
 - `memory/` — Agent memory (JSON files, no sensitive data)
 - `frontend/` — React + Vite dashboard
-- `tests/` — pytest suite (360+ tests, 25 files)
+- `tests/` — pytest suite (721 tests, 69 files)
 - `docs/` — Architecture, threat model, safety policy, reviewer guide, etc.
 - `reports/` — Security report
 - `tools/` — Local-development check runner
@@ -120,30 +122,34 @@ routing layer for the rest of the portfolio.
 
 ## Quick Start
 
+> Commands below use `%REPO%` for the directory you cloned into. Set it once
+> per shell: `set REPO=%CD%` from the repository root (PowerShell:
+> `$env:REPO=$PWD`).
+
 ### Create virtual environment
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base
+cd /d %REPO%
 py -3.11 -m venv .venv
 ```
 
 ### Install backend dependencies
 
 ```cmd
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+%REPO%\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
 ```
 
 ### Run backend
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base\backend
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+cd /d %REPO%\backend
+%REPO%\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
 ```
 
 ### Install frontend
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base\frontend
+cd /d %REPO%\frontend
 npm install --registry=https://registry.npmmirror.com
 ```
 
@@ -156,22 +162,22 @@ npm run dev
 ### Run tests
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe -m pytest
+cd /d %REPO%
+%REPO%\.venv\Scripts\python.exe -m pytest
 ```
 
 ### Build frontend
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base\frontend
+cd /d %REPO%\frontend
 npm run build
 ```
 
 ### Local check
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe tools\run_checks.py
+cd /d %REPO%
+%REPO%\.venv\Scripts\python.exe tools\run_checks.py
 ```
 
 ---
@@ -227,7 +233,7 @@ are blocked with a redirect to local lab or authorized assessment guidance.
 
 ## Benchmark
 
-60+ tasks across knowledge QA, safety classification, vulnerability reasoning,
+60 tasks across knowledge QA, safety classification, vulnerability reasoning,
 safe verification planning, remediation reasoning, and task routing. Run via
 `POST /benchmark/run` or `python tools/run_checks.py` (indirectly via tests).
 
@@ -241,7 +247,7 @@ Each report is also available as Markdown via the `markdown` field.
 
 ## Testing
 
-- 360+ pytest tests in 25 files
+- 721 pytest tests in 69 files
 - Backend modules, retrieval, safety, memory, router, benchmark, API surface
 - Security boundary tests assert no `requests`, `subprocess`, or `shell=True`
   inside `backend/app`, no real API keys, no real target domains, no attack
@@ -275,4 +281,4 @@ managed by the author.
 
 Use this project as the knowledge, safety, and routing layer when reviewing
 the rest of the portfolio. Start at the Reviewer Quick Path above and follow
-the ten steps in order.
+the 12 steps in order.

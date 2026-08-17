@@ -65,7 +65,7 @@ def build_30_day_plan() -> dict[str, Any]:
 
 def build_version_roadmap_from_v5() -> dict[str, Any]:
     return {
-        "current": "v5.0-rc",
+        "current": "v5.0",
         "next": [
             {"version": "v5.1", "theme": "documentation polish + screenshots"},
             {"version": "v5.2", "theme": "performance + caching on rule engine"},

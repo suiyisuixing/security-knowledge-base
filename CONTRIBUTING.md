@@ -26,9 +26,13 @@ following rules apply to any local changes the author makes.
 - Commit messages do not name AI tools.
 - No `Co-authored-by` trailer.
 
+> Commands below use `%REPO%` for the directory you cloned into. Set it once
+> per shell: `set REPO=%CD%` from the repository root (PowerShell:
+> `$env:REPO=$PWD`).
+
 ## Local validation
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe tools\run_checks.py
+cd /d %REPO%
+%REPO%\.venv\Scripts\python.exe tools\run_checks.py
 ```

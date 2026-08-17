@@ -53,4 +53,4 @@ def test_e2e_cross_project_report_includes_readiness():
 
 def test_e2e_v5_release_report_complete():
     r = agent_hub_service.get_v5_release_report()
-    assert "v5.0-rc" in r["release_checklist"]["version"]
+    assert "v5.0" in r["release_checklist"]["version"]

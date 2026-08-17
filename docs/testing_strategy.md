@@ -37,9 +37,13 @@
 - Test files do not import `requests`, `subprocess`, or `urllib.request`.
 - Security-boundary tests assert that the backend imports do not change.
 
+> Commands below use `%REPO%` for the directory you cloned into. Set it once
+> per shell: `set REPO=%CD%` from the repository root (PowerShell:
+> `$env:REPO=$PWD`).
+
 ## How to run
 
 ```cmd
-cd /d C:\Users\27827\Desktop\Event\security-knowledge-base
-C:\Users\27827\Desktop\Event\security-knowledge-base\.venv\Scripts\python.exe -m pytest
+cd /d %REPO%
+%REPO%\.venv\Scripts\python.exe -m pytest
 ```

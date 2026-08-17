@@ -11,7 +11,7 @@
 | remediation_reasoning | 10 |
 | task_routing | 10 |
 
-Total: 60+ tasks.
+Total: 60 tasks.
 
 ## Task shape
 
